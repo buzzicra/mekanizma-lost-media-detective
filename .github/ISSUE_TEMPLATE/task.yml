@@ -1,0 +1,91 @@
+name: Pod taskı
+description: Owner, Reviewer ve Verifier ile ölçülebilir pod işi
+title: "[TASK-ID] "
+labels: ["status:draft"]
+body:
+  - type: input
+    id: task_id
+    attributes:
+      label: Task ID
+      placeholder: CASE-CONTRACT-01
+    validations:
+      required: true
+  - type: dropdown
+    id: pod
+    attributes:
+      label: Pod
+      options:
+        - Pod 1 - Keşif ve Vaka Açma
+        - Pod 2 - Kanıt ve Çözüm
+        - Pod 3 - Güven ve Süreklilik
+        - Ortak çekirdek
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Kullanıcı sonucu
+      description: Bu task bittiğinde kullanıcı ne yapabiliyor?
+    validations:
+      required: true
+  - type: textarea
+    id: roles
+    attributes:
+      label: Owner / Reviewer / Verifier
+      placeholder: |
+        Owner:
+        Reviewer:
+        Verifier:
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Depends on / Blocks
+      placeholder: |
+        Depends on:
+        Blocks:
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope ve non-goallar
+      description: Değişebilecek ve özellikle değişmeyecek alanlar
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Her madde gözlenebilir ve test edilebilir olmalı
+      placeholder: "- [ ] Normal yol ..."
+    validations:
+      required: true
+  - type: textarea
+    id: proof
+    attributes:
+      label: Doğrulama ve kanıt
+      placeholder: Test/typecheck/lint/build komutları, ekran kanıtı, hata yolu
+    validations:
+      required: true
+  - type: textarea
+    id: security
+    attributes:
+      label: Güvenlik ve kişisel veri etkisi
+      placeholder: Yok veya açık risk/izin modeli
+    validations:
+      required: true
+  - type: checkboxes
+    id: ready
+    attributes:
+      label: Ready kontrolü
+      options:
+        - label: Dependency tamamlandı veya yok
+          required: true
+        - label: Owner, Reviewer ve Verifier farklı kişiler
+          required: true
+        - label: Normal ve en az bir hata yolu yazılı
+          required: true
+        - label: Scope dışı değişiklik yeni issue olacak
+          required: true

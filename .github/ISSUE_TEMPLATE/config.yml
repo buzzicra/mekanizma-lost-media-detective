@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Güvenlik açığı
+    url: https://github.com/buzzicra/mekanizma-lost-media-detective/security/advisories/new
+    about: Güvenlik açıklarını public issue yerine özel bildirin.
