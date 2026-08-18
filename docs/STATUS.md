@@ -11,21 +11,21 @@
 
 ## Pod 1 - Keşif ve Vaka Açma
 
-- [ ] `CASE-CONTRACT-01` - Arden Owner / Alp Reviewer / Burak Verifier
-- [ ] `CASE-BUILD-01` - Alp Owner / Arden Reviewer / Burak Verifier
-- [ ] `CASE-QUALITY-01` - Burak Owner / Alp Reviewer / Arden Verifier
+- [ ] [`CASE-CONTRACT-01`](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/2) - Arden Owner / Alp Reviewer / Burak Verifier
+- [ ] [`CASE-BUILD-01`](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/3) - Alp Owner / Arden Reviewer / Burak Verifier
+- [ ] [`CASE-QUALITY-01`](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/4) - Burak Owner / Alp Reviewer / Arden Verifier
 
 ## Pod 2 - Kanıt ve Çözüm
 
-- [ ] `EVID-CONTRACT-01` - Taylan Owner / Batıncan Reviewer / Cemresu Verifier
-- [ ] `EVID-BUILD-01` - Batıncan Owner / Taylan Reviewer / Cemresu Verifier
-- [ ] `EVID-QUALITY-01` - Cemresu Owner / Batıncan Reviewer / Taylan Verifier
+- [ ] [`EVID-CONTRACT-01`](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/5) - Taylan Owner / Batıncan Reviewer / Cemresu Verifier
+- [ ] [`EVID-BUILD-01`](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/6) - Batıncan Owner / Taylan Reviewer / Cemresu Verifier
+- [ ] [`EVID-QUALITY-01`](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/7) - Cemresu Owner / Batıncan Reviewer / Taylan Verifier
 
 ## Pod 3 - Güven ve Süreklilik
 
-- [ ] `REPORT-CONTRACT-01` - Emir Owner / Kerim Reviewer / Deniz Verifier
-- [ ] `REPORT-BUILD-01` - Kerim Owner / Emir Reviewer / Deniz Verifier
-- [ ] `REPORT-QUALITY-01` - Deniz Owner / Kerim Reviewer / Emir Verifier
+- [ ] [`REPORT-CONTRACT-01`](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/8) - Emir Owner / Kerim Reviewer / Deniz Verifier
+- [ ] [`REPORT-BUILD-01`](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/9) - Kerim Owner / Emir Reviewer / Deniz Verifier
+- [ ] [`REPORT-QUALITY-01`](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/10) - Deniz Owner / Kerim Reviewer / Emir Verifier
 
 ## Task geçiş şartı
 

@@ -16,6 +16,8 @@ Uygulama koduna geçmeden önce ilk çalışan dikey dilimi hazırlıyoruz.
 
 Bu 9 task bütün proje değildir. İlk arayüz dilimidir. Uzun dönem task DAG'i [teknik planda](./docs/technical/08-uygulama-plani-task-dag.md) tutulur.
 
+Canlı ilerleme: [İlk Dikey Dilim - 9 Task tracker](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/1)
+
 ## Podlar
 
 | Pod | Sonuç | Lead / Bora iletişimi | İlk sıra |
