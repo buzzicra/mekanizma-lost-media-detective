@@ -1,24 +1,53 @@
-# Emir Kaan Çatı — İlk Görev Kartı
+# Emir Kaan Çatı - Kişisel görev kartı
 
-**Pod:** Güven ve Süreklilik  
-**Rol:** Lead / Contract  
-**Şu an:** `REPORT-CONTRACT-01` Owner
+**Aktif GitHub hesabı:** `@CodeAThing`
+**Pod:** Pod 2 - Vaka Formu
+**Task 1:** `CASE-CONTRACT-01` Reviewer
+**Task 2:** `CASE-BUILD-01` Owner / Builder
+**Task 3:** `CASE-QUALITY-01` Reviewer
+**Ekip:** Kerim ve Burak
 
-## Şimdi ne yapacaksın?
+## Şu an neredesin?
 
-Rapor formunun hedef, neden, detay, durum ve focus contractını çıkaracaksın. Kerim bunu form componentine çevirebilmeli; Deniz invalid/loading/error/success ve focus senaryolarını test edebilmeli.
+Issue #8'e yazdığın Report contractı silinmedi; fakat o hat park edildi. Güncel görevin Kerim'in Issue #2 vaka formu contractını builder gözüyle incelemek.
 
-## Teslimin
+## Sırayla görevlerin
 
-- tek hedef kuralı;
-- yedi rapor nedeni;
-- 10–1.000 karakter detay kuralı;
-- form state tablosu;
-- dialog/focus davranışı;
-- UI input/output type taslağı;
-- non-goal ve acceptance kriterleri.
+### Görev 1: Doğru hesapla repo davetini kabul et
 
-Detaylı task: [Pod 3 — REPORT-CONTRACT-01](../05-POD-3-GÜVEN-VE-SÜREKLİLİK.md#report-contract-01--rapor-formu-contractı)
+Çalışmayı `@CodeAThing` hesabıyla yürüt. Branch, commit ve PR aynı hesapta izlenebilir olsun.
 
-Contract kabul edilince `REPORT-BUILD-01` taskında reviewer olacaksın.
+### Görev 2: Kerim'in contractını builder gözüyle oku
 
+Alanlar, sınırlar, state'ler, focus, typed output ve non-goallar ek karar vermeden component planı çıkarmana yetiyor mu kontrol et.
+
+### Görev 3: Gerekçeli review yaz
+
+Issue #2'ye `APPROVE` veya `CHANGES REQUESTED` bırak. Her eksik için bölüm ve beklenen davranışı söyle.
+
+### Görev 4: Build kapısını bekle
+
+Issue #3 Ready olmadan, contract kapanmadan ve ortak scaffold belirlenmeden proje veya branch başlatma.
+
+### Görev 5: Küçük dosya planı çıkar
+
+Değişecek dosyalar, component dilimleri, validation/test yaklaşımı, dokunulmayacak alanlar ve blocker riski yazılı olsun.
+
+### Görev 6: Form iskeleti ve validationı geliştir
+
+Contract alanlarını, anlaşılır hata mesajlarını ve ilk hatalı alana focus davranışını küçük difflerle kur.
+
+### Görev 7: Loading, parent error, klavye ve mobil ekle
+
+Çift submit engeli, veri korunumu, yalnız-klavye akışı ve 375 px davranışını tamamla. Fake timeout veya fake success üretme.
+
+### Görev 8: Test, PR ve handoff hazırla
+
+Normal/invalid testleri, typecheck/lint komutları, exit code, ekranlar, bilinen sınırlar ve `CASE-QUALITY-01` handoff'unu PR'a ekle.
+
+## Bitti ölçütün
+
+- Review kararın gerekçeli.
+- Form contract alanlarını ve state'leri karşılıyor.
+- Kerim review'u, Burak bağımsız PASS sonucu var.
+- PR ve quality handoff'u tamam.

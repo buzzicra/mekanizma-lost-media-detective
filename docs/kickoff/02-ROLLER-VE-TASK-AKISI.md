@@ -1,125 +1,67 @@
-# Roller ve Task Akışı
+# Roller ve task akışı
 
-## Sabit pod rolleri
+## Üç şapka
 
-İlk iki üretim döngüsünde üç rol sabit kalır.
+### Owner
 
-### Lead / Contract
+Taskın çıktısından sorumlu kişi. Planı yazar, küçük diff üretir, agent çıktısını okur, kanıtı toplar.
 
-Lead önce işin ne olduğunu kesinleştirir:
+### Reviewer
 
-- kullanıcı sonucu;
-- kapsam ve yapılmayacaklar;
-- alanlar, durumlar ve kurallar;
-- diğer tasklarla bağımlılık;
-- ölçülebilir kabul kriterleri.
+Taskın sınırını korur. Contract uygulanabilir mi, dosya planı doğru mu, diff gereksiz alana taşıyor mu diye kontrol eder. Owner yerine kod yazmaz.
 
-Lead yalnız toplantı yöneten kişi değildir. Domain, durum geçişi ve contract tasklarında kod veya teknik doküman teslim eder.
+### Verifier
 
-### Builder / Integration
+Davranışı bağımsız dener. Normal ve hata yolunu, klavye/focus davranışını ve 375 px görünümü test eder. Owner'ın kanıtını tekrar etmek verify değildir.
 
-Builder kabul edilmiş contractı çalışan özelliğe çevirir:
+## Pod 1 rol dönüşümü
 
-- repodaki mevcut patternleri inceler;
-- agentla dosya planı çıkarır;
-- yalnız izin verilen alanda değişiklik yapar;
-- diff'i açıklar;
-- ilgili test/typecheck/lint komutlarını çalıştırır.
-
-Builder poddaki bütün kodu tek başına yazmaz. Build ve entegrasyon tasklarının owner'ıdır.
-
-### Quality / Handoff
-
-Quality davranışın gerçekten çalıştığını kanıtlar:
-
-- normal ve hatalı senaryolar;
-- component veya davranış testleri;
-- keyboard, focus ve mobile kontrolleri;
-- komutlar ve exit code'lar;
-- bilinen sınırlar;
-- sonraki taska handoff.
-
-Quality yalnız manuel testçi değildir. Test, erişilebilirlik, dokümantasyon ve release tasklarının owner'ıdır.
-
-## Her taskta şapkalar
-
-Sabit rol ile task şapkası aynı şey değildir:
-
-| Task türü | Owner | Reviewer | Verifier |
+| Task | Owner | Reviewer | Verifier |
 |---|---|---|---|
-| Contract/domain | Lead | Builder | Quality |
-| Build/integration | Builder | Lead | Quality |
-| Quality/a11y/release | Quality | Builder | Lead |
+| `EVID-CONTRACT-01` | Taylan | Batıncan | Cemresu |
+| `EVID-BUILD-01` | Batıncan | Taylan | Cemresu |
+| `EVID-QUALITY-01` | Cemresu | Batıncan | Taylan |
 
-Owner taskı teslim eder. Reviewer kapsamı ve doğruluğu inceler. Verifier sonucu kriterlere göre dener. Üçü de taskta aktiftir.
+## Pod 2 rol dönüşümü
 
-## Kısa sözlük
+| Task | Owner | Reviewer | Verifier |
+|---|---|---|---|
+| `CASE-CONTRACT-01` | Kerim | Emir | Burak |
+| `CASE-BUILD-01` | Emir | Kerim | Burak |
+| `CASE-QUALITY-01` | Burak | Emir | Kerim |
 
-| Terim | Bu projede anlamı |
-|---|---|
-| Scope | Taskın dokunabileceği alan. Bunun dışı yeni task veya karar gerektirir. |
-| Non-goal | Bu taskta bilerek yapılmayacak şey. “Unuttuk” değil, kapsam dışı bıraktık. |
-| Contract | İki parça arasındaki anlaşma: hangi veri girer, hangi durumlar oluşur, hangi çıktı beklenir. |
-| Acceptance criteria | Taskın geçtiğini gözle görülür biçimde ispatlayan maddeler. |
-| Dependency / depends on | Bu task başlamadan bitmesi gereken iş. |
-| Blocks | Bu task bitmeden başlayamayan sonraki iş. |
-| Blocker | Owner'ın kendi scope'unda çözemediği, ilerlemeyi durduran somut engel. |
-| Diff | Branchte yapılan ekleme, silme ve değişikliklerin tamamı. |
-| Handoff | Biten işin sonraki task sahibine bıraktığı contract, kullanım ve test bilgisi. |
-| Fixture | Test/component geliştirmede kullanılan kontrollü örnek veri; production verisi değildir. |
-| UI-local type | Yalnız componentin aldığı/verdiği veri şekli. DB şeması veya ortak sistem kontratı değildir. |
-| Parent error/success | Componentin dışındaki gerçek işlemden gelen hata veya başarı durumu. Component fake sonuç üretmez. |
-| Exit code | Komutun sonucu. `0` başarı; farklı değer hata veya başarısız gate demektir. |
+## Task nasıl ilerler?
 
-Bir terim taskta geçiyorsa pod üyeleri aynı anlamı kullanır. Anlaşılmayan terim varsayımla doldurulmaz; issue'da sorulur.
+1. Owner aktif issue'yu ve teknik kaynağı okur.
+2. Kullanıcı sonucunu, scope'u ve non-goalları kendi cümlesiyle yazar.
+3. Kod taskıysa önce 5-8 maddelik dosya planı paylaşır.
+4. Reviewer planı kontrol eder.
+5. Owner küçük dilim üretir; diff'i okur.
+6. Reviewer gerekçeli karar verir.
+7. Verifier belirli commit/PR üzerinde bağımsız kontrol yapar.
+8. Pod Lead üç kanıtı Bora'ya getirir.
+9. Bora + Codex son kapıyı geçerse sonraki task açılır.
 
-## Task yaşam döngüsü
+## Karar formatları
 
-```text
-Draft → Ready → In Progress → Review → Verify → Done
-                    ↘ Blocked ↗
-```
-
-- `Draft`: Task yazılıyor; eksik alan var.
-- `Ready`: Owner, kapsam, acceptance, bağımlılık ve kanıt belli.
-- `In Progress`: Owner çalışıyor; podda başka task açılmaz.
-- `Review`: Reviewer scope ve çözümü kontrol ediyor.
-- `Verify`: Verifier normal ve hata yolunu kanıtlıyor.
-- `Done`: Kriterler geçti; sıradaki task açılabilir.
-- `Blocked`: İlerlemeyi durduran somut engel ve karar sahibi yazılı.
-
-## Agentla çalışma sırası
-
-### 1. Önce incele
-
-Agent ilk turda kod yazmaz. Repo talimatlarını, mevcut patternleri, `git status` çıktısını, olası dosyaları ve gerçek doğrulama komutlarını bulur.
-
-### 2. Planı podla kontrol et
-
-Owner dosya planını taska koyar. Reviewer kapsamı, verifier test edilebilirliği kontrol eder. Onay gelmeden implement aşamasına geçilmez.
-
-### 3. Küçük diff üret
-
-Yalnız onaylanan dosyalar değişir. Yeni dependency, shared schema veya riskli altyapı ihtiyacında kapsam sessizce büyütülmez; blocker açılır.
-
-### 4. Diff'i okuyun
-
-“Agent yaptı” açıklama değildir. Owner hangi davranışın hangi dosyada değiştiğini ve nedenini anlatır.
-
-### 5. Kanıtlayın
-
-Normal yol, hata yolu ve taska uygun komutlar çalışır. Test scripti yoksa uydurulmaz; eksik gate açıkça yazılır.
-
-## 20/40 kuralı
-
-20 dakika ilerleme yoksa taska şunlar yazılır:
+Reviewer:
 
 ```text
-Beklenen:
-Olan:
-Denenen:
-Hata veya kanıt:
-Tahmin edilen blocker:
+Karar: APPROVE / CHANGES REQUESTED
+Contract uyumu:
+Scope ve dosya sınırı:
+Eksik veya risk:
+İstenen somut düzeltme:
 ```
 
-Navigator/Reviewer ile bakılır. 40 dakikada çözülmezse Bora scope, contract veya ortak çekirdek kararı verir. Task sessizce genişletilmez.
+Verifier:
+
+```text
+Karar: PASS / FAIL / BLOCKED
+Denediğim commit veya PR:
+Komutlar ve exit code:
+Normal yol:
+Invalid veya hata yolu:
+Klavye ve 375 px:
+Kanıt linki:
+```

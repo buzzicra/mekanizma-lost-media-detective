@@ -1,26 +1,53 @@
-# Kerim Taşçı — İlk Görev Kartı
+# Kerim Taşçı - Kişisel görev kartı
 
-**Pod:** Güven ve Süreklilik  
-**Rol:** Builder / Integration  
-**Şu an:** `REPORT-CONTRACT-01` Reviewer  
-**İlk owner taskın:** `REPORT-BUILD-01`
+**GitHub:** `@kerimtasci`
+**Pod:** Pod 2 - Vaka Formu
+**Task 1:** `CASE-CONTRACT-01` Owner / Contract Lead
+**Task 2:** `CASE-BUILD-01` Reviewer
+**Task 3:** `CASE-QUALITY-01` Verifier
+**Ekip:** Emir ve Burak
 
-## Şimdi ne yapacaksın?
+## Şu an neredesin?
 
-Emir'in contractını uygulama açısından inceleyeceksin. Form state'i, dialog davranışı veya type sınırı belirsizse kod başlamadan taska yazacaksın.
+Issue #2 Ready; henüz yeni contract teslimi yok. İlk hareket sende. Report hattındaki eski çalışmaya devam etmiyorsun.
 
-Contract bitince rapor formu componentini geliştireceksin.
+## Sırayla görevlerin
 
-## Owner teslimin
+### Görev 1: Kaynakları oku
 
-- yedi neden ve detay alanı;
-- typed `onSubmit`;
-- loading, parent error ve parent success;
-- invalid input ve focus;
-- dialog keyboard davranışı;
-- mobile görünüm ve component testleri.
+Issue #2, veri modeli `cases`, API draft/publish ayrımı, kalite belgesindeki form/focus kuralları ve aktif task briefini oku.
 
-Detaylı task: [Pod 3 — REPORT-BUILD-01](../05-POD-3-GÜVEN-VE-SÜREKLİLİK.md#report-build-01--rapor-formu-componenti)
+### Görev 2: Alan ve validation contractını yaz
 
-`REPORT-CONTRACT-01 Done` olmadan implementasyona başlamıyorsun.
+Alan adı, tip, required/optional, sınır, hata mesajı ve hangi kullanıcı sonucunu desteklediğini tabloya dök.
 
+### Görev 3: State ve focus davranışını netleştir
+
+Başlangıç, kısmi, invalid, submitting, parent error ve valid-data durumlarını; ilk hataya focus ve klavye davranışını yaz.
+
+### Görev 4: Scope ve non-goalları kilitle
+
+Auth, API, DB, autosave, publish, benzer-vaka sorgusu ve shared altyapının bu taskta yapılmayacağını açıkça yaz.
+
+### Görev 5: Emir ve Burak kararlarını al
+
+Emir uygulanabilirlik, Burak test edilebilirlik kararını Issue #2'ye gerekçeyle bırakmalı.
+
+### Görev 6: Bora + Codex gate'ini çağır
+
+Contract, review, verify ve açık karar/blocker linklerini tek mesajla Bora'ya getir.
+
+### Görev 7: Emir'in build planını review et
+
+Dosya nedenleri, küçük component dilimi, validation/test yolu, dokunulmayacak alan ve blocker riskini contractla karşılaştır.
+
+### Görev 8: Quality aşamasında bağımsız verify yap
+
+Burak'ın kalite paketini belirli commit üzerinde yeniden çalıştır. Sonucu komut, exit code ve PASS/FAIL gerekçesiyle kaydet.
+
+## Bitti ölçütün
+
+- Issue #2 kendi başına uygulanabilir ve test edilebilir.
+- Emir ve Burak kararları kayıtlı.
+- Build planı contract sınırında.
+- Quality sonucu bağımsız kanıtlı.

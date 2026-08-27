@@ -1,66 +1,47 @@
-# Mekanizma Proje A — Buradan Başlayın
+# Buradan başlayın
 
-Bu paket doğrudan katılımcılar içindir. Anket puanı, özel not veya seviye sıralaması içermez.
+Bu repo iki aktif podla ilerliyor. Her pod önce contractı netleştirir, sonra componenti geliştirir, son olarak kalite ve handoff taskını tamamlar.
 
-## Proje
+## Aktif ekipler
 
-İlk projemiz Lost Media Detective. İnsanların adını hatırlamadığı bir video, oyun, reklam, web sitesi, şarkı veya başka bir içeriği kaynaklı kanıtlarla birlikte bulmasına yardım eden açık kaynak bir uygulama yapıyoruz.
+| Pod | Contract Lead | Builder | Quality |
+|---|---|---|---|
+| Pod 1 - Kanıt Kartı | Taylan | Batıncan | Cemresu |
+| Pod 2 - Vaka Formu | Kerim | Emir | Burak |
 
-## Çalışma biçimi
+## Bugün ne yapılıyor?
 
-Üç pod var. Her pod bir kullanıcı sonucunu sahipleniyor:
+### Pod 1
 
-- Pod 1: Kullanıcı arar; bulamazsa anlaşılır bir formdan vaka açar.
-- Pod 2: Araştırmacı kaynaklı kanıt ekler; adaylar değerlendirilir; vaka çözüme gider.
-- Pod 3: Kullanıcı katkısını takip eder; riskli içeriği raporlar; güven akışı kayıtlı ilerler.
+Taylan `EVID-CONTRACT-01` r2 teslimini yaptı. Batıncan uygulanabilirlik onayı verdi. Cemresu contractı bağımsız test cümlelerine çevirip Verifier kararını [Issue #5](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/5) altında yazacak.
 
-Her pod ilk dilimi aynı sırayla tamamlar:
+`EVID-BUILD-01` henüz başlamaz. Cemresu kararı ve Bora + Codex kapısı beklenir.
 
-```text
-1. Contract taskı → Ne yapacağımızı kesinleştirir.
-2. Build taskı → Kararı çalışan özelliğe çevirir.
-3. Quality taskı → Davranışı test eder, kanıtlar ve devreder.
-```
+### Pod 2
 
-Pod başına aynı anda yalnız bir task aktiftir. Bir task kabul edilmeden sıradaki başlamaz.
+Kerim `CASE-CONTRACT-01` Owner'ıdır. İlk işi kod yazmak değil; vaka formunun alan, validation, state, focus ve scope kurallarını [Issue #2](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/2) altında teslim etmektir.
 
-## Şu an aktif olan tasklar
+Emir uygulanabilirlik review'u, Burak test edilebilirlik kararı verir. Sonra Bora + Codex kapısı açılır.
 
-| Pod | Aktif task | Owner | Reviewer | Verifier |
-|---|---|---|---|---|
-| Pod 1 | `CASE-CONTRACT-01` | Arden | Alp | Burak |
-| Pod 2 | `EVID-CONTRACT-01` | Taylan | Batıncan | Cemresu |
-| Pod 3 | `REPORT-CONTRACT-01` | Emir | Kerim | Deniz |
+## Okuma sırası
 
-Alp, Batıncan ve Kerim şu an boşta değildir. Contractın uygulanabilirliğini review eder. Burak, Cemresu ve Deniz de contractın test edilebilirliğini doğrular. Contract kabul edilince Builder taskı açılır.
+1. [Ürün ve pod haritası](./01-ÜRÜN-VE-POD-HARİTASI.md)
+2. [Roller ve task akışı](./02-ROLLER-VE-TASK-AKISI.md)
+3. Kendi pod rehberin:
+   - [Pod 1 - Kanıt Kartı](./03-POD-1-KANIT-KARTI.md)
+   - [Pod 2 - Vaka Formu](./04-POD-2-VAKA-FORMU.md)
+4. Kendi [kişisel görev kartın](./kisi-kartlari/)
+5. Aktif GitHub issue
 
-## Hangi dosyayı okuyacağım?
+## Başlamadan dört kapı
 
-1. Bu dosyayı oku.
-2. [Roller ve task akışı](./02-ROLLER-VE-TASK-AKISI.md) dosyasını oku.
-3. Kendi pod dosyanı oku:
-   - [Pod 1](./03-POD-1-KEŞİF-VE-VAKA-AÇMA.md)
-   - [Pod 2](./04-POD-2-KANIT-VE-ÇÖZÜM.md)
-   - [Pod 3](./05-POD-3-GÜVEN-VE-SÜREKLİLİK.md)
-4. `kisi-kartlari/` klasöründen kendi adını aç.
-5. Yalnız kartında “Şu an” yazan işi yap.
+- Doğru GitHub hesabınla repo erişimin var.
+- Yalnız kendi aktif issue'na çalışıyorsun.
+- Dependency tamamlanmış; issue `status:ready` veya `status:in-progress`.
+- Değişiklikten önce repo incelemesi ve dosya planı yaptın.
 
-## Bir taskın özeti
+Bir kapı eksikse gizlice başka işe geçme. Blocker'ı issue'ya yaz; Pod Lead üzerinden Bora'ya taşı.
 
-Her task şu sorulara cevap verir:
+## Park edilen işler
 
-- Kullanıcı task sonunda ne yapabilecek?
-- Owner kim?
-- Reviewer ve verifier kim?
-- Hangi dosyalar değişebilir?
-- Bu taskta özellikle ne yapılmayacak?
-- Başarılı ve hatalı davranış nasıl ölçülecek?
-- Hangi task bitmeden bu iş başlayamaz?
-- Bittiğini hangi kanıt gösterecek?
-
-Bu sorulardan biri cevapsızsa task kodlanmaya hazır değildir.
-
-## Önemli sınır
-
-İlk üç taskta auth, DB migration, upload, production config veya deployment değişmez. Ortak schema/contract ihtiyacı çıkarsa pod kendi başına karar vermez; taskta blocker açar ve Bora'ya getirir.
-
+`REPORT-*` issue'ları bu pilotta aktif değildir. Emir ve Burak'ın Issue #8 altındaki çalışması silinmedi; sonraki dönem için korunuyor. Bora yeniden açmadan bu hatta devam edilmez.
