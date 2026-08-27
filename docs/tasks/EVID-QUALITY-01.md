@@ -1,11 +1,11 @@
 # EVID-QUALITY-01 - Durum, link ve OSS handoff
 
-**Pod:** Pod 2 - Kanıt ve Çözüm  
-**Durum:** Blocked  
-**Owner:** Cemresu Demir  
-**Reviewer:** Batıncan Kantar  
-**Verifier:** Taylan Akgün  
-**Depends on:** `EVID-BUILD-01`  
+**Pod:** Pod 1 - Kanıt Kartı
+**Durum:** Blocked
+**Owner:** Cemresu Demir
+**Reviewer:** Batıncan Kantar
+**Verifier:** Taylan Akgün
+**Depends on:** `EVID-BUILD-01`
 **Blocks:** Sonraki evidence create/server dilimi
 
 ## Kullanıcı sonucu

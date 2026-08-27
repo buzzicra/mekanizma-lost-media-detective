@@ -1,11 +1,11 @@
 # CASE-QUALITY-01 - Form kalite ve handoff
 
-**Pod:** Pod 1 - Keşif ve Vaka Açma  
-**Durum:** Blocked  
-**Owner:** Burak Şimşek  
-**Reviewer:** Alp Kılıç  
-**Verifier:** Arden Olgundemir  
-**Depends on:** `CASE-BUILD-01`  
+**Pod:** Pod 2 - Vaka Formu
+**Durum:** Blocked
+**Owner:** Burak Şimşek
+**Reviewer:** Emir Kaan Çatı (`@CodeAThing`)
+**Verifier:** Kerim Taşçı
+**Depends on:** `CASE-BUILD-01`
 **Blocks:** Sonraki vaka formu/server dilimi
 
 ## Kullanıcı sonucu

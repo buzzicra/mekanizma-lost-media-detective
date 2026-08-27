@@ -1,8 +1,10 @@
-# 05 — 9 Kişilik Pod Planı ve Bağımlılıklar
+# 05 — Uzun Dönem Ürün Hatları ve Bağımlılıklar
+
+> **Aktif pilot notu - 27 Ağustos 2026:** Aşağıdaki üç hat ürünün uzun dönem iş bölümleridir; güncel ekip podları değildir. Aktif pilot iki poddan oluşur: Kanıt Kartı ve Vaka Formu. Güven/rapor hattı sonraki döneme park edilmiştir. Güncel kişi ve task dağılımı için [`../STATUS.md`](../STATUS.md) kullanılır.
 
 ## 1. Takım modeli
 
-Proje 9 katılımcı için üç dikey poda ayrılır. Her pod yalnız ekran veya yalnız backend yapmaz; kendi kullanıcı akışının UI, doğrulama, server işlemi, test ve dokümantasyonunu birlikte teslim eder.
+Uzun dönem ürün üç dikey iş hattına ayrılır. Aktif pilotta bu hatlardan ikisi altı katılımcıyla çalışır. Her aktif pod yalnız ekran veya yalnız backend yapmaz; kendi kullanıcı sonucunun UI, doğrulama, test ve dokümantasyonunu birlikte teslim eder.
 
 Bora onuncu üretim noktası değildir. Baş maintainer ve entegrasyon sorumlusudur:
 

@@ -1,11 +1,11 @@
 # CASE-CONTRACT-01 - Vaka formu contractı
 
-**Pod:** Pod 1 - Keşif ve Vaka Açma  
-**Durum:** Ready / ilk aktif task  
-**Owner:** Arden Olgundemir  
-**Reviewer:** Alp Kılıç  
-**Verifier:** Burak Şimşek  
-**Depends on:** Yok  
+**Pod:** Pod 2 - Vaka Formu
+**Durum:** Ready / ilk aktif task
+**Owner:** Kerim Taşçı
+**Reviewer:** Emir Kaan Çatı (`@CodeAThing`)
+**Verifier:** Burak Şimşek
+**Depends on:** Yok
 **Blocks:** `CASE-BUILD-01`
 
 ## Kullanıcı sonucu

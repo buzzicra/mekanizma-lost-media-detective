@@ -2,69 +2,87 @@
 
 ## Kısa cevap
 
-Her podun üç başlangıç taskı vardır:
+İki aktif pod var. Her pod üç taskı sırayla tamamlar:
 
 ```text
-Contract → Build → Quality
+Contract -> Build -> Quality
 ```
 
-Üç task aynı anda başlamaz. Pod başına WIP limiti 1'dir.
+Aynı podda iki task birlikte başlamaz. WIP limiti 1'dir.
 
-## Her taskta üç kişi de çalışır
+## Aktif ekip
 
-| Şapka | Sorumluluk |
-|---|---|
-| Owner | Çıktıyı üretir, açıklar ve kanıtlar. |
-| Reviewer | Scope, doğruluk ve uygulanabilirliği inceler. |
-| Verifier | Kabul kriterlerini kullanıcı gibi dener ve sonucu kaydeder. |
+| Pod | Contract Lead | Builder | Quality | Bora'ya ulaşan kişi |
+|---|---|---|---|---|
+| Pod 1 - Kanıt Kartı | Taylan | Batıncan | Cemresu | Taylan |
+| Pod 2 - Vaka Formu | Kerim | Emir | Burak | Kerim |
 
-Sabit pod rolü ile task şapkası farklıdır. Roller her task değişiminde aşağıdaki gibi döner:
+## Roller her taskta döner
 
-| Task türü | Owner | Reviewer | Verifier |
+| Task | Owner | Reviewer | Verifier |
 |---|---|---|---|
-| Contract | Lead | Builder | Quality |
-| Build | Builder | Lead | Quality |
-| Quality | Quality | Builder | Lead |
+| Contract | Contract Lead | Builder | Quality |
+| Build | Builder | Contract Lead | Quality |
+| Quality | Quality | Builder | Contract Lead |
 
-Bu dönüşüm ilk üç taskın tamamında zorunludur. Aynı kişi Owner ve Reviewer/Verifier olamaz.
+### Owner
+
+- Kullanıcı sonucunu kendi cümlesiyle açıklar.
+- Önce repo ve dosya planı çıkarır.
+- Küçük diff üretir; her dosyanın neden değiştiğini anlatır.
+- Komut, exit code, ekran ve bilinen sınırları teslim eder.
+
+### Reviewer
+
+- İlk kez PR sonunda değil, dosya planında devreye girer.
+- Contract uyumu, scope, dosya sınırı ve gereksiz altyapı değişikliğini kontrol eder.
+- `APPROVE` veya `CHANGES REQUESTED` kararını gerekçeyle yazar.
+- Owner yerine işi tamamlamaz.
+
+### Verifier
+
+- Owner'ın ekran görüntüsünü tekrar paylaşmaz; belirli commit veya PR'ı bağımsız dener.
+- Normal, invalid/hata, klavye/focus ve 375 px yolunu kontrol eder.
+- `PASS`, `FAIL` veya `BLOCKED` kararını kanıtla yazar.
 
 ## Task yaşam döngüsü
 
 ```text
-Draft → Ready → In Progress → Review → Verify → Done
-                    ↘ Blocked ↗
+Draft -> Ready -> In Progress -> Review -> Verify -> Done
+                    \-> Blocked -/
 ```
 
-1. Lead/Owner task briefini netleştirir.
-2. Dependency tamamlanınca issue `status:ready` olur.
-3. Owner branch açar; agentla önce repo incelemesi ve dosya planı çıkarır.
-4. Reviewer planı ve sonra diffi kontrol eder.
-5. Verifier normal ve hata yolunu dener.
-6. Owner yorumları kapatır; kanıtı tamamlar.
-7. Pod Lead issue/PR linkiyle Bora'ya ulaşır.
-8. Bora ve Codex issue, diff, acceptance, komut ve ekran kanıtını birlikte kontrol eder.
-9. İnsan Reviewer/Verifier kararları ve Bora + Codex kapısı geçince sıradaki task açılır.
+1. Dependency tamamlanınca issue `status:ready` olur.
+2. Owner branch açar: `task/<TASK-ID>-kisa-aciklama`.
+3. İlk agent turu yalnız inceleme ve 5-8 maddelik dosya planıdır.
+4. Reviewer planı kontrol eder.
+5. Owner küçük dilimler halinde uygular ve diff'i okur.
+6. Reviewer gerekçeli karar verir.
+7. Verifier bağımsız test yapar.
+8. Pod Lead issue/PR linkini Bora'ya iletir.
+9. Bora + Codex kanıt kapısı geçerse task `Done`, sonraki task `Ready` olur.
 
-## Bora'ya kim ulaşır?
+## Bitiş kanıtı
 
-| Pod | Birincil iletişim |
-|---|---|
-| Pod 1 | Arden Olgundemir |
-| Pod 2 | Taylan Akgün |
-| Pod 3 | Emir Kaan Çatı |
-
-Lead yoksa aktif task Ownerı ulaşır. Owner yalnız “bitirdim” dediğinde Bora'ya gidilmez; Reviewer ve Verifier kararı beklenir. Codex insan Reviewer veya Verifier yerine geçmez; Bora'nın son kanıt kontrolüne yardım eder.
+- Issue ve PR linki
+- Değişen dosyaların kısa açıklaması
+- Normal ve hata/invalid ekranı
+- Gerçek komutlar ve exit code
+- Reviewer kararı
+- Verifier kararı
+- Bilinen sınırlar
+- Sonraki task için handoff
 
 ## 20/40 blocker kuralı
 
-20 dakika ilerleme yoksa issue'ya şunlar yazılır:
+20 dakika aynı yerde dönüyorsanız issue'ya yazın:
 
 ```text
-Beklenen:
-Olan:
-Denenen:
-Hata veya kanıt:
-Tahmin edilen blocker:
+Beklediğimiz davranış:
+Gördüğümüz davranış:
+Denediklerimiz:
+Eksik karar, erişim veya bağımlılık:
+Bu çözülünce ilk yapacağımız:
 ```
 
-40 dakikada çözülmezse Pod Lead Bora'yı issue linkiyle çağırır. Scope sessizce büyütülmez.
+40 dakikada çözülmezse Pod Lead Bora'ya issue linkiyle ulaşır. Scope sessizce büyütülmez.

@@ -1,5 +1,7 @@
 # Repo ve pod takip tasarımı
 
+> **Tarihsel karar:** Bu belge 18 Ağustos 2026'daki üç-pod başlangıç planını kaydeder. 27 Ağustos 2026 itibarıyla aktif pilot iki pod ve altı task olarak güncellendi. Güncel kaynak [`../STATUS.md`](../STATUS.md) ve [`../POD-CALISMA-SISTEMI.md`](../POD-CALISMA-SISTEMI.md) belgeleridir.
+
 ## Karar
 
 Tek public GitHub repository kullanılır. WhatsApp bildirim kanalıdır; task, karar, blocker, kanıt ve handoff GitHub'da tutulur.

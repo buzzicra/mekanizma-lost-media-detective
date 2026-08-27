@@ -1,9 +1,9 @@
 # Lost Media Detective — Proje A Teknik Kaynak Paketi
 
-**Belge durumu:** Uygulama öncesi teknik kaynak · v0.1  
-**Son güncelleme:** 17 Ağustos 2026  
-**Ekip:** 9 katılımcı + Bora (baş maintainer ve entegrasyon sorumlusu)  
-**Lisans hedefi:** AGPL-3.0  
+**Belge durumu:** Uygulama öncesi teknik kaynak · v0.1
+**Son güncelleme:** 27 Ağustos 2026
+**Aktif pilot ekibi:** 6 katılımcı + Bora (baş maintainer ve entegrasyon sorumlusu)
+**Lisans hedefi:** AGPL-3.0
 **Dağıtım hedefi:** Provider-neutral Docker; ilk ortam Railway veya Render
 
 ## 1. Bu paket ne işe yarar?
@@ -47,7 +47,7 @@ Adını veya kaynağını hatırlamadığı bir medya içeriğini arayan kişi, 
 | Moderasyon | Hemen yayın + rapor + kuyruk + audit log + soft delete |
 | Hosting | Next.js standalone Docker; Vercel bağımlılığı yok |
 | Açık kaynak | AGPL-3.0 + her committe DCO sign-off |
-| Ekip | 3 pod × 3 kişi; Bora ortak mimari, güvenlik ve entegrasyon |
+| Aktif pilot | 2 pod × 3 kişi; Bora ortak mimari, güvenlik ve entegrasyon |
 | Toplantı | Her pod Bora ile ayrı gün/saat; toplantılar üretim ve entegrasyon odaklı |
 
 ## 5. Kaynak doğruluğu sırası
@@ -115,4 +115,3 @@ En az bir gerçek vaka, topluluğun eklediği kaynaklı kanıtla çözülür. Bu
 - [NIST SP 800-63B](https://pages.nist.gov/800-63-4/sp800-63b.html)
 - [AGPL-3.0](https://www.gnu.org/licenses/agpl-3.0.html)
 - [Developer Certificate of Origin](https://developercertificate.org/)
-
