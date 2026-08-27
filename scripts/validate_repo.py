@@ -10,6 +10,7 @@ from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
 TASKS = ROOT / "docs" / "tasks"
+PEOPLE = ROOT / "docs" / "kickoff" / "kisi-kartlari"
 EXPECTED_TASKS = {
     "CASE-CONTRACT-01",
     "CASE-BUILD-01",
@@ -17,6 +18,14 @@ EXPECTED_TASKS = {
     "EVID-CONTRACT-01",
     "EVID-BUILD-01",
     "EVID-QUALITY-01",
+}
+EXPECTED_PEOPLE = {
+    "batincan-kantar",
+    "burak-simsek",
+    "cemresu-demir",
+    "emir-kaan-cati",
+    "kerim-tasci",
+    "taylan-akgun",
 }
 REQUIRED_FIELDS = (
     "**Pod:**",
@@ -47,6 +56,21 @@ def validate_tasks(errors: list[str]) -> None:
                 errors.append(f"{path.relative_to(ROOT)} missing {field}")
 
 
+def validate_people(errors: list[str]) -> None:
+    found = {path.stem for path in PEOPLE.glob("*.md") if path.name != "README.md"}
+    if found != EXPECTED_PEOPLE:
+        errors.append(
+            f"Participant set mismatch: expected={sorted(EXPECTED_PEOPLE)} found={sorted(found)}"
+        )
+    for path in sorted(PEOPLE.glob("*.md")):
+        if path.name == "README.md":
+            continue
+        text = path.read_text(encoding="utf-8")
+        for number in range(1, 9):
+            if f"### Görev {number}:" not in text:
+                errors.append(f"{path.relative_to(ROOT)} missing Görev {number}")
+
+
 def validate_links_and_privacy(errors: list[str]) -> None:
     for path in sorted(ROOT.rglob("*.md")):
         if ".git" in path.parts:
@@ -66,12 +90,16 @@ def validate_links_and_privacy(errors: list[str]) -> None:
 def main() -> int:
     errors: list[str] = []
     validate_tasks(errors)
+    validate_people(errors)
     validate_links_and_privacy(errors)
     if errors:
         for error in errors:
             print(f"ERROR: {error}")
         return 1
-    print("PASS: 6 active tasks, required fields, local links, privacy scan")
+    print(
+        "PASS: 6 active tasks, 6 participant cards with Görev 1-8, "
+        "required fields, local links, privacy scan"
+    )
     return 0
 
 
