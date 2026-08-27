@@ -1,73 +1,43 @@
-# Ürün ve Pod Haritası
+# Ürün ve pod haritası
 
-## Problem
+## Ne yapıyoruz?
 
-Bir içeriği hatırlayıp adını hatırlamamak kolay. Genellikle elimizde parçalar var: yaklaşık yıl, bir replik, görüntü, platform, karakter, ses veya reklamın geçtiği yer. Bugünkü arama araçları bu dağınık hatırayı düzgün bir araştırma vakasına çevirmiyor.
+Lost Media Detective, adını bilmediği bir medya içeriğini arayan kişinin hatırladığı ayrıntılarla vaka açmasını ve topluluğun kaynaklı kanıtlarla araştırmasına yardım etmesini sağlar.
 
-Lost Media Detective şu döngüyü kuruyor:
+İlk pilot bütün ürünü bitirmeye çalışmaz. İki görünür, test edilebilir arayüz dilimi üretir.
 
-```text
-Hatıra → Vaka → Kaynaklı kanıt → Değerlendirme → Çözüm
-```
+## Pod 1 - Kanıt Kartı
 
-Temel kurallar:
+Kullanıcı tek kartta şunları anlayacak:
 
-- Kaynak yoksa kayıt kanıt sayılmaz.
-- Elenen aday silinmez; neden elendiği görünür.
-- AI yardımcı olabilir, son kararı vermez.
-- Kişisel veri araştırma girdisi değildir.
-- Açık kaynak kod, açık kullanıcı verisi demek değildir.
+- İddia ne?
+- Kaynak nerede?
+- Bu kaynak neden anlamlı?
+- Kanıt `NEW`, `POSSIBLE`, `REJECTED` veya `VERIFIED` durumlarından hangisinde?
+- Elendiyse gerekçe ne?
 
-## Pod 1 — Keşif ve vaka açma
+Bu pod evidence oluşturma, status değiştirme, API veya DB yapmaz. İlk dilim read-only componenttir.
 
-Kullanıcı sonucu:
+## Pod 2 - Vaka Formu
 
-> “Hatırladığım şeyi aradım. Benzer vaka bulamayınca geçerli bir vaka açabildim.”
+Kullanıcı şu davranışları görecek:
 
-İlk dilim: yönlendirmeli vaka formu.
+- Contractta tanımlanan vaka alanları
+- Anlaşılır validation mesajları
+- İlk hatalı alana focus
+- Loading ve parent error durumları
+- Klavye ve 375 px kullanım
 
-Bu podun ileride sahip olacağı alanlar:
+Bu pod ilk dilimde auth, API, DB, autosave veya publish yapmaz. Form geçerli typed veriyi parent'a teslim eder.
 
-- arama ve filtreler;
-- benzer vaka kontrolü;
-- vaka formu ve validation;
-- taslak;
-- yayınlama öncesi güvenlik onayı.
+## Neden iki pod?
 
-## Pod 2 — Kanıt ve çözüm
+- Altı kişilik ekipte herkesin rolü net kalır.
+- Her pod tek kullanıcı sonucu üzerinden ilerler.
+- Contract, build ve quality görevleri sırayla öğrenilir.
+- Aynı dosyada gereksiz çakışma azalır.
+- Rapor/moderasyon gibi daha riskli işler temel çalışma düzeni oturduktan sonra açılır.
 
-Kullanıcı sonucu:
+## Ortak sınır
 
-> “Vakaya kaynak ve gerekçeyle aday ekledim; adayın durumunu gördüm; doğru aday çözüme bağlandı.”
-
-İlk dilim: kaynaklı kanıt kartı.
-
-Bu podun ileride sahip olacağı alanlar:
-
-- public vaka detayı;
-- kanıt ekleme ve düzenleme;
-- Yeni, Olası, Elendi, Doğrulandı durumları;
-- kanıt değerlendirme;
-- çözüm özeti.
-
-## Pod 3 — Güven ve süreklilik
-
-Kullanıcı sonucu:
-
-> “Riskli içeriği raporladım; katkımı ve sonucu takip edebildim.”
-
-İlk dilim: içerik raporlama formu.
-
-Bu podun ileride sahip olacağı alanlar:
-
-- profil ve katkılar;
-- bildirimler;
-- içerik raporlama;
-- moderasyon kuyruğu;
-- audit geçmişi;
-- yinelenen vaka birleştirme.
-
-## Neden frontend/backend diye bölünmedik?
-
-Bir pod yalnız ekran, başka pod yalnız API yaparsa kimse kullanıcı sonucunun tamamını sahiplenmez. Burada pod sınırı teknoloji değil kullanıcı işidir. İlerleyen tasklarda aynı pod kendi alanının UI, doğrulama, server davranışı, testi ve dokümantasyonunu birlikte teslim eder.
-
+Auth, DB, migration, storage, CI ve shared güvenlik altyapısı Bora'nın entegrasyon alanıdır. Pod bunlara ihtiyaç duyarsa değişikliği gizlice yapmaz; blocker açar.

@@ -1,23 +1,52 @@
-# Taylan Akgün — İlk Görev Kartı
+# Taylan Akgün - Kişisel görev kartı
 
-**Pod:** Kanıt ve Çözüm  
-**Rol:** Lead / Contract  
-**Şu an:** `EVID-CONTRACT-01` Owner
+**GitHub:** `@taylanakgn`
+**Pod:** Pod 1 - Kanıt Kartı
+**Task 1:** `EVID-CONTRACT-01` Owner / Contract Lead
+**Task 2:** `EVID-BUILD-01` Reviewer / Pod Lead
+**Ekip:** Batıncan ve Cemresu
 
-## Şimdi ne yapacaksın?
+## Şu an neredesin?
 
-Kanıt kartının alan, durum ve güvenli link contractını çıkaracaksın. Batıncan bunu yoruma ihtiyaç duymadan uygulayabilmeli; Cemresu dört durumu ve link kurallarını ayrı ayrı test edebilmeli.
+Contract r2 teslimin Issue #5'te. Batıncan uygulanabilirlik onayı verdi. Contractı tekrar büyütmek yerine Cemresu'nun bağımsız test edilebilirlik kararını bekliyorsun.
 
-## Teslimin
+## Sırayla görevlerin
 
-- claim/source/rationale/status alan tablosu;
-- dört status ve Türkçe karşılıkları;
-- Elendi gerekçesi kuralı;
-- güvenli/geçersiz link davranışı;
-- component prop/type taslağı;
-- non-goal ve acceptance kriterleri.
+### Görev 1: Contract teslimini sabitle
 
-Detaylı task: [Pod 2 — EVID-CONTRACT-01](../04-POD-2-KANIT-VE-ÇÖZÜM.md#evid-contract-01--kanıt-kartı-contractı)
+r2'nin geçerli teslim olduğunu Issue #5'te kısa handoff ile belirt. Yeni karar yoksa metni değiştirme.
 
-Contract kabul edilince `EVID-BUILD-01` taskında reviewer olacaksın.
+### Görev 2: Cemresu'nun Verifier kararını al
 
+Cemresu her acceptance maddesini PASS/FAIL testine çevirebildiğini yazmalı. Eksik bulursa yalnız ilgili bölümü revize et.
+
+### Görev 3: Bora + Codex kapısını çağır
+
+Owner teslimi, Batıncan kararı ve Cemresu kararı aynı issue altında olduğunda üç bağlantıyı Bora'ya getir.
+
+### Görev 4: Build geçişini kaydet
+
+Gate geçerse `EVID-CONTRACT-01` kapanır, `EVID-BUILD-01` Ready olur. Batıncan artık Owner; sen Reviewer olursun.
+
+### Görev 5: Batıncan'ın dosya planını incele
+
+Dosya nedenleri, ilk küçük component dilimi, test dosyası, non-goallar ve blocker riski plan içinde görünmeli.
+
+### Görev 6: Diff'i contractla karşılaştır
+
+Dört status, `REJECTED` gerekçesi, safe/invalid URL, uzun metin, i18n ve 375 px davranışını kontrol et.
+
+### Görev 7: Scope'u koru
+
+Evidence yaratma, status mutation, auth, API, DB, URL fetch veya shared altyapı değişikliği görürsen gerekçeli düzeltme iste.
+
+### Görev 8: Podu kapıya taşı
+
+Batıncan PR'ı ve Cemresu bağımsız sonucu hazır olduğunda scope kararı + PR + verify kanıtını Bora'ya getir.
+
+## Bitti ölçütün
+
+- Contract insan kapısı ve Bora + Codex kontrolü kayıtlı.
+- Build PR'ı contract sınırında.
+- Reviewer kararın gerekçeli.
+- Cemresu sonucu ve sonraki handoff görünür.

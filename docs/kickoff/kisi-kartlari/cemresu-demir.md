@@ -1,23 +1,53 @@
-# Cemresu Demir — İlk Görev Kartı
+# Cemresu Demir - Kişisel görev kartı
 
-**Pod:** Kanıt ve Çözüm  
-**Rol:** Quality / OSS Handoff  
-**Şu an:** `EVID-CONTRACT-01` Verifier  
-**İlk owner taskın:** `EVID-QUALITY-01`
+**GitHub:** `@cecesue`
+**Pod:** Pod 1 - Kanıt Kartı
+**Task 1:** `EVID-CONTRACT-01` Verifier
+**Task 2:** `EVID-BUILD-01` Verifier
+**Task 3:** `EVID-QUALITY-01` Owner
+**Ekip:** Taylan ve Batıncan
 
-## Şimdi ne yapacaksın?
+## Şu an neredesin?
 
-Taylan'ın contractındaki dört durumun, Elendi gerekçesinin ve güvenli/geçersiz link kurallarının ayrı ayrı test edilebilir olduğunu kontrol edeceksin.
+Takımı bekleten tek insan kapısı senin contract Verifier kararın. Taylan r2 teslim etti, Batıncan onayladı.
 
-Batıncan build taskını bitirince test ve açık kaynak handoff'unun owner'ı olacaksın.
+## Sırayla görevlerin
 
-## Owner teslimin
+### Görev 1: r2 acceptance listesini çıkar
 
-- dört durum testi;
-- Elendi görünürlük testi;
-- güvenli/geçersiz link testleri;
-- keyboard/mobile kontrolü;
-- komut sonuçları ve OSS uyumlu handoff.
+Her madde için girdi, eylem, beklenen sonuç ve PASS/FAIL ölçütü yaz.
 
-Detaylı task: [Pod 2 — EVID-QUALITY-01](../04-POD-2-KANIT-VE-ÇÖZÜM.md#evid-quality-01--durum-link-ve-oss-handoff)
+### Görev 2: Belirsiz davranışları işaretle
 
+Bir cümle tek beklenen sonuç üretmiyorsa bölüm numarasıyla Taylan'a geri dön. Yeni ürün kararı verme.
+
+### Görev 3: Contract kararını Issue #5'e yaz
+
+`TEST EDİLEBİLİR` veya `REVİZYON GEREKLİ` seç. Özellikle dört status, rejected reason, boş/uzun metin, safe/invalid URL, klavye ve 375 px'i gerekçelendir.
+
+### Görev 4: Build test planını hazırla
+
+Issue #6 açıldığında normal, invalid, klavye/focus, 375 px ve URL kötü kullanım senaryolarını ayrı gruplara böl.
+
+### Görev 5: Dört statusu bağımsız dene
+
+Owner fixture'ını kopyalamakla yetinme. Her statusun metnini, görsel işaretini ve görünür içeriğini kontrol et.
+
+### Görev 6: URL güvenliğini dene
+
+HTTP, HTTPS, boş değer, bozuk URL, `javascript:`, `data:` ve `file:` senaryolarını çalıştır.
+
+### Görev 7: Erişilebilirlik ve mobil kontrolü yap
+
+Tab/Enter, görünür focus, statusun renk dışı anlamı, uzun metin ve 375 px yatay taşma kontrolünü kaydet.
+
+### Görev 8: Quality taskını sahiplen
+
+`EVID-QUALITY-01` açıldığında acceptance-test tablosunu, tekrar üretilebilir komutları, PASS/FAIL sonucunu ve sonraki server dilimi handoff'unu hazırla.
+
+## Bitti ölçütün
+
+- Issue #5'te gerekçeli contract kararı var.
+- Belirli commit/PR üzerinde bağımsız sonuç var.
+- Komutlar, exit code ve ekran kanıtı kayıtlı.
+- FAIL varsa tekrar üretme adımı açık.
