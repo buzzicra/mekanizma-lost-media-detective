@@ -1,11 +1,11 @@
 # CASE-BUILD-01 - Form shell ve validation UI
 
-**Pod:** Pod 1 - Keşif ve Vaka Açma  
-**Durum:** Blocked  
-**Owner:** Alp Kılıç  
-**Reviewer:** Arden Olgundemir  
-**Verifier:** Burak Şimşek  
-**Depends on:** `CASE-CONTRACT-01`  
+**Pod:** Pod 2 - Vaka Formu
+**Durum:** Blocked
+**Owner:** Emir Kaan Çatı (`@CodeAThing`)
+**Reviewer:** Kerim Taşçı
+**Verifier:** Burak Şimşek
+**Depends on:** `CASE-CONTRACT-01`
 **Blocks:** `CASE-QUALITY-01`
 
 ## Kullanıcı sonucu

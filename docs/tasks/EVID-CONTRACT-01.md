@@ -1,11 +1,11 @@
 # EVID-CONTRACT-01 - Kanıt kartı contractı
 
-**Pod:** Pod 2 - Kanıt ve Çözüm  
-**Durum:** Ready / ilk aktif task  
-**Owner:** Taylan Akgün  
-**Reviewer:** Batıncan Kantar  
-**Verifier:** Cemresu Demir  
-**Depends on:** Yok  
+**Pod:** Pod 1 - Kanıt Kartı
+**Durum:** Review / Verifier kararı bekleniyor
+**Owner:** Taylan Akgün
+**Reviewer:** Batıncan Kantar
+**Verifier:** Cemresu Demir
+**Depends on:** Yok
 **Blocks:** `EVID-BUILD-01`
 
 ## Kullanıcı sonucu

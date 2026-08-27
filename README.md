@@ -2,65 +2,66 @@
 
 Mekanizma topluluğunun birlikte geliştirdiği açık kaynak Lost Media Detective uygulaması.
 
-Bir kullanıcı yarım hatırladığı medya içeriği için yapılandırılmış vaka açar. Topluluk kaynak bağlantılı kanıtlar ekler; elenen, olası ve doğrulanan adaylar görünür bir araştırma kaydına dönüşür.
+Kullanıcı yarım hatırladığı medya içeriği için yapılandırılmış vaka açar. Topluluk kaynak bağlantılı kanıtlar ekler; elenen, olası ve doğrulanan adaylar görünür bir araştırma kaydına dönüşür.
 
 ## Şu an neredeyiz?
 
-Uygulama koduna geçmeden önce ilk çalışan dikey dilimi hazırlıyoruz.
+Aktif pilot düzeni:
 
-- 3 pod
-- 9 katılımcı
-- Pod başına 3 başlangıç taskı
-- Toplam 9 başlangıç taskı
-- Pod başına aynı anda yalnız 1 aktif task
+- 2 pod
+- 6 katılımcı
+- Pod başına `Contract -> Build -> Quality` sırasıyla 3 task
+- Toplam 6 aktif başlangıç taskı
+- Pod başına WIP limiti 1
 
-Bu 9 task bütün proje değildir. İlk arayüz dilimidir. Uzun dönem task DAG'i [teknik planda](./docs/technical/08-uygulama-plani-task-dag.md) tutulur.
+Repo henüz uygulama scaffold'u içermiyor. Build taskları, ilgili contract insan kapısı ve Bora + Codex kontrolü geçmeden başlamaz.
 
-Canlı ilerleme: [İlk Dikey Dilim - 9 Task tracker](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/1)
+Canlı takip: [İlk Dikey Dilim - 2 Pod / 6 Task](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/1)
 
-## Podlar
+## Aktif podlar
 
-| Pod | Sonuç | Lead / Bora iletişimi | İlk sıra |
+| Pod | Kullanıcı sonucu | Ekip | Task sırası |
 |---|---|---|---|
-| Pod 1 | Yönlendirmeli vaka formu | Arden Olgundemir | `CASE-CONTRACT-01` → `CASE-BUILD-01` → `CASE-QUALITY-01` |
-| Pod 2 | Kaynaklı kanıt kartı | Taylan Akgün | `EVID-CONTRACT-01` → `EVID-BUILD-01` → `EVID-QUALITY-01` |
-| Pod 3 | Güvenli rapor formu | Emir Kaan Çatı | `REPORT-CONTRACT-01` → `REPORT-BUILD-01` → `REPORT-QUALITY-01` |
+| Pod 1 - Kanıt Kartı | Claim, kaynak, gerekçe ve durumun güvenli kartta görünmesi | Taylan, Batıncan, Cemresu | `EVID-CONTRACT-01` -> `EVID-BUILD-01` -> `EVID-QUALITY-01` |
+| Pod 2 - Vaka Formu | Alan, validation, focus, loading ve hata durumları çalışan form | Kerim, Emir, Burak | `CASE-CONTRACT-01` -> `CASE-BUILD-01` -> `CASE-QUALITY-01` |
 
-## Başlama sırası
+Rapor/moderasyon hattı ürün backlog'unda korunur; bu pilotta aktif pod değildir. Eski `REPORT-*` issue'ları yapılan emeği kaybetmemek için `status:parked` durumunda tutulur.
 
-1. [Buradan başlayın](./docs/kickoff/00-BURADAN-BASLAYIN.md).
-2. [Pod çalışma sistemini](./docs/POD-CALISMA-SISTEMI.md) okuyun.
-3. Yalnız `status:ready` etiketli issue üzerinde çalışın.
-4. Owner tesliminden sonra Reviewer ve Verifier kararını issue'ya yazar.
-5. Üç kontrol tamamlanınca Pod Lead issue/PR linkiyle Bora'ya ulaşır.
-6. Bora ve Codex kanıt kapısını birlikte kontrol eder; sonra sıradaki task açılır.
+## İlk yapacağın şey
 
-## Her taskta roller değişir
+1. [Buradan başlayın](./docs/kickoff/00-BURADAN-BASLAYIN.md) belgesini aç.
+2. [Pod çalışma sistemini](./docs/POD-CALISMA-SISTEMI.md) oku.
+3. Kendi [kişisel görev kartını](./docs/kickoff/kisi-kartlari/) aç.
+4. Yalnız `status:ready` veya `status:in-progress` issue üzerinde çalış.
+5. İlk agent turunda kod isteme; repo incelemesi ve dosya planı iste.
+6. Owner, Reviewer ve Verifier kanıtı tamamlanmadan sonraki taska geçme.
 
-| Task türü | Owner | Reviewer | Verifier |
+## Roller nasıl döner?
+
+| Task | Owner | Reviewer | Verifier |
 |---|---|---|---|
-| Contract | Lead / Contract | Builder / Integration | Quality / Handoff |
-| Build | Builder / Integration | Lead / Contract | Quality / Handoff |
-| Quality | Quality / Handoff | Builder / Integration | Lead / Contract |
+| Contract | Contract Lead | Builder | Quality |
+| Build | Builder | Contract Lead | Quality |
+| Quality | Quality | Builder | Contract Lead |
 
-Reviewer ve Verifier yalnız isim değildir. İkisi issue'ya gerekçeli karar ve kontrol kanıtı bırakır. Bora + Codex kapısı bu iki insan kontrolünün yerine geçmez; son geçiş kontrolüdür.
+Owner üretir. Reviewer kapsam ve doğruluğu kontrol eder. Verifier davranışı bağımsız dener. Bora + Codex kapısı bu iki insan kontrolünün yerine geçmez.
 
 ## Repo haritası
 
-- [`docs/tasks/`](./docs/tasks/) - İlk dokuz taskın tekil briefleri
-- [`docs/kickoff/`](./docs/kickoff/) - Yeni başlayanlara yönelik pod ve kişi rehberleri
-- [`docs/technical/`](./docs/technical/) - Ürün, mimari, veri ve uzun dönem task DAG'i
-- [`docs/plans/`](./docs/plans/) - Onaylanmış işletim kararları
+- [`docs/STATUS.md`](./docs/STATUS.md) - Güncel ilerleme ve bekleyen kapılar
+- [`docs/tasks/`](./docs/tasks/) - Altı aktif taskın tekil briefleri
+- [`docs/kickoff/`](./docs/kickoff/) - Pod ve kişi rehberleri
+- [`docs/technical/`](./docs/technical/) - Ürün, mimari, veri ve uzun dönem backlog
 - [Katkı rehberi](./CONTRIBUTING.md)
 - [Güvenlik politikası](./SECURITY.md)
 
 ## Temel kural
 
 ```text
-Owner teslimi → Reviewer onayı → Verifier kanıtı → Bora + Codex kapısı → Sonraki task
+Owner teslimi -> Reviewer kararı -> Verifier kanıtı -> Bora + Codex kapısı -> Sonraki task
 ```
 
-`Agent yaptı` kanıt değildir. Diff okunur; gerçek komutlar çalıştırılır; ekran ve hata yolu görülür.
+`Agent yaptı` kanıt değildir. Diff okunur; gerçek komutlar çalıştırılır; normal ve hata yolu görülür.
 
 ## Lisans
 

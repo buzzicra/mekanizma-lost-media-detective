@@ -1,11 +1,11 @@
 # EVID-BUILD-01 - Kanıt kartı componenti
 
-**Pod:** Pod 2 - Kanıt ve Çözüm  
-**Durum:** Blocked  
-**Owner:** Batıncan Kantar  
-**Reviewer:** Taylan Akgün  
-**Verifier:** Cemresu Demir  
-**Depends on:** `EVID-CONTRACT-01`  
+**Pod:** Pod 1 - Kanıt Kartı
+**Durum:** Blocked
+**Owner:** Batıncan Kantar
+**Reviewer:** Taylan Akgün
+**Verifier:** Cemresu Demir
+**Depends on:** `EVID-CONTRACT-01`
 **Blocks:** `EVID-QUALITY-01`
 
 ## Kullanıcı sonucu

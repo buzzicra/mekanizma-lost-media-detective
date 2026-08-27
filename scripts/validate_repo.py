@@ -17,9 +17,6 @@ EXPECTED_TASKS = {
     "EVID-CONTRACT-01",
     "EVID-BUILD-01",
     "EVID-QUALITY-01",
-    "REPORT-CONTRACT-01",
-    "REPORT-BUILD-01",
-    "REPORT-QUALITY-01",
 }
 REQUIRED_FIELDS = (
     "**Pod:**",
@@ -74,7 +71,7 @@ def main() -> int:
         for error in errors:
             print(f"ERROR: {error}")
         return 1
-    print("PASS: 9 starter tasks, required fields, local links, privacy scan")
+    print("PASS: 6 active tasks, required fields, local links, privacy scan")
     return 0
 
 
