@@ -4,16 +4,19 @@
 
 | Koltuk | Kişi |
 |---|---|
-| Contract Lead / Pod Lead | Taylan Akgün |
-| Builder | Batıncan Kantar |
-| Quality | Cemresu Demir |
+| Tamamlanmış Contract katkıları | Taylan Akgün, Batıncan Kantar, Cemresu Demir |
+| Aktif implementation owner | `buzzicra` + Codex |
+| Review ve nihai kabul | Bora |
+| Otomatik doğrulama | Codex + CI |
+
+Pod 1 katılımcı ekibi dağıldı. Üç kişinin Contract emeği issue geçmişinde korunur; kendilerinden yeni Build veya Quality görevi beklenmez.
 
 ## Task 1 - EVID-CONTRACT-01
 
 **Owner:** Taylan
 **Reviewer:** Batıncan
 **Verifier:** Cemresu
-**Canlı durum:** Owner r2 teslimi ve Reviewer onayı var; Verifier kararı bekleniyor.
+**Canlı durum:** Done. Owner r2 teslimi, Reviewer onayı ve Verifier kararı mevcut. Maintainer addendum güncel pod adını, kaynak dosyayı ve scaffold blockerını kilitledi.
 
 Contract şu davranışları netleştirir:
 
@@ -25,25 +28,26 @@ Contract şu davranışları netleştirir:
 - i18n, klavye ve 375 px sınırları
 - Auth, mutation, API, DB ve URL preview non-goalları
 
-Cemresu her acceptance maddesini bağımsız PASS/FAIL senaryosuna çevirebildiğini Issue #5'te belirtmeden task kapanmaz.
+Cemresu test edilebilirlik kararını Issue #5'e bıraktı. Task maintainer kararıyla kapandı.
 
 ## Task 2 - EVID-BUILD-01
 
-**Owner:** Batıncan
-**Reviewer:** Taylan
-**Verifier:** Cemresu
-**Durum:** Contract gate ve ortak scaffold bekleniyor.
+**Owner:** `buzzicra` + Codex
+**Reviewer:** Bora
+**Verifier:** Codex + CI
+**Durum:** Ready. İlk adım ortak scaffold, dosya planı ve gerçek kontrol komutlarıdır.
 
 Beklenen sonuç read-only Evidence Card componentidir. Dört status, güvenli dış link, invalid source, uzun metin ve mobil davranış görünür olmalıdır. Evidence oluşturma veya status mutation bu taska eklenmez.
 
 ## Task 3 - EVID-QUALITY-01
 
-**Owner:** Cemresu
-**Reviewer:** Batıncan
-**Verifier:** Taylan
+**Owner:** `buzzicra` + Codex
+**Reviewer:** Bora
+**Verifier:** Codex + CI
+**Durum:** Blocked; EVID-BUILD-01 bekleniyor.
 
-Cemresu acceptance-test eşleştirmesini ve bağımsız kalite paketini sahiplenir. Dört status, rejected reason, güvenli/geçersiz URL, klavye, focus, uzun metin ve 375 px kanıtlanır. Bilinen sınırlar sonraki server dilimine handoff edilir.
+Maintainer hattı acceptance-test eşleştirmesini ve bağımsız kalite paketini üretir. Dört status, rejected reason, güvenli/geçersiz URL, klavye, focus, uzun metin ve 375 px kanıtlanır. Bilinen sınırlar sonraki server dilimine handoff edilir.
 
 ## Pod Lead ne zaman Bora'ya gelir?
 
-Owner teslimi, Reviewer kararı ve Verifier kararı aynı issue altında görünür olduğunda Taylan issue/PR linkiyle Bora'ya gelir.
+Codex diff, komut ve ekran kanıtını issue/PR'a bağlar. Bora scope ve kanıtı kabul etmeden task kapanmaz.

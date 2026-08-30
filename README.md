@@ -8,13 +8,14 @@ Kullanıcı yarım hatırladığı medya içeriği için yapılandırılmış va
 
 Aktif pilot düzeni:
 
-- 2 pod
-- 6 katılımcı
+- 2 ürün hattı
+- Pod 2'de 3 aktif katılımcı
+- Dağılan Pod 1 için `buzzicra` + Codex maintainer devralması
 - Pod başına `Contract -> Build -> Quality` sırasıyla 3 task
 - Toplam 6 aktif başlangıç taskı
 - Pod başına WIP limiti 1
 
-Repo henüz uygulama scaffold'u içermiyor. Build taskları, ilgili contract insan kapısı ve Bora + Codex kontrolü geçmeden başlamaz.
+İki Contract taskı maintainer kararıyla Done durumundadır. Repo henüz uygulama scaffold'u içermiyor; iki Build taskının ilk ortak bağımlılığı scaffold ve gerçek test komutlarıdır.
 
 Canlı takip: [İlk Dikey Dilim - 2 Pod / 6 Task](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/1)
 
@@ -22,7 +23,7 @@ Canlı takip: [İlk Dikey Dilim - 2 Pod / 6 Task](https://github.com/buzzicra/me
 
 | Pod | Kullanıcı sonucu | Ekip | Task sırası |
 |---|---|---|---|
-| Pod 1 - Kanıt Kartı | Claim, kaynak, gerekçe ve durumun güvenli kartta görünmesi | Taylan, Batıncan, Cemresu | `EVID-CONTRACT-01` -> `EVID-BUILD-01` -> `EVID-QUALITY-01` |
+| Pod 1 - Kanıt Kartı | Claim, kaynak, gerekçe ve durumun güvenli kartta görünmesi | `buzzicra` + Codex maintainer hattı; Contract katkıları Taylan, Batıncan, Cemresu | `EVID-CONTRACT-01` Done -> `EVID-BUILD-01` Ready -> `EVID-QUALITY-01` Blocked |
 | Pod 2 - Vaka Formu | Alan, validation, focus, loading ve hata durumları çalışan form | Kerim, Emir, Burak | `CASE-CONTRACT-01` -> `CASE-BUILD-01` -> `CASE-QUALITY-01` |
 
 Rapor/moderasyon hattı ürün backlog'unda korunur; bu pilotta aktif pod değildir. Eski `REPORT-*` issue'ları yapılan emeği kaybetmemek için `status:parked` durumunda tutulur.
@@ -31,7 +32,7 @@ Rapor/moderasyon hattı ürün backlog'unda korunur; bu pilotta aktif pod değil
 
 1. [Buradan başlayın](./docs/kickoff/00-BURADAN-BASLAYIN.md) belgesini aç.
 2. [Pod çalışma sistemini](./docs/POD-CALISMA-SISTEMI.md) oku.
-3. Kendi [kişisel görev kartını](./docs/kickoff/kisi-kartlari/) aç.
+3. Kendi [kişisel görev kartını](./docs/kickoff/kisi-kartlari/) aç. Pod 1'in eski kişi kartları yalnız geçmiş kaydıdır.
 4. Yalnız `status:ready` veya `status:in-progress` issue üzerinde çalış.
 5. İlk agent turunda kod isteme; repo incelemesi ve dosya planı iste.
 6. Owner, Reviewer ve Verifier kanıtı tamamlanmadan sonraki taska geçme.
@@ -44,7 +45,7 @@ Rapor/moderasyon hattı ürün backlog'unda korunur; bu pilotta aktif pod değil
 | Build | Builder | Contract Lead | Quality |
 | Quality | Quality | Builder | Contract Lead |
 
-Owner üretir. Reviewer kapsam ve doğruluğu kontrol eder. Verifier davranışı bağımsız dener. Bora + Codex kapısı bu iki insan kontrolünün yerine geçmez.
+Owner üretir. Reviewer kapsam ve doğruluğu kontrol eder. Verifier davranışı bağımsız dener. Pod 2 bu insan kapılarını korur. Dağılan Pod 1, açıkça işaretlenmiş maintainer devralma istisnasıyla ilerler; Codex uygulama ve otomatik kanıtı, Bora nihai kabulü sahiplenir.
 
 ## Repo haritası
 

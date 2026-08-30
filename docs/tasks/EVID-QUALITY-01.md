@@ -2,9 +2,9 @@
 
 **Pod:** Pod 1 - Kanıt Kartı
 **Durum:** Blocked
-**Owner:** Cemresu Demir
-**Reviewer:** Batıncan Kantar
-**Verifier:** Taylan Akgün
+**Owner:** `buzzicra` + Codex
+**Reviewer:** Bora
+**Verifier:** Codex + CI
 **Depends on:** `EVID-BUILD-01`
 **Blocks:** Sonraki evidence create/server dilimi
 
