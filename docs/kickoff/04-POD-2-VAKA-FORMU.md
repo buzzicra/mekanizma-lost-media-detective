@@ -13,7 +13,7 @@
 **Owner:** Kerim
 **Reviewer:** Emir
 **Verifier:** Burak
-**Canlı durum:** Ready; Owner teslimi yok.
+**Canlı durum:** Done; Kerim r1 teslimini yaptı, Bora maintainer kararıyla ilk taskı geçirdi.
 
 Kerim contractta şunları netleştirir:
 
@@ -25,14 +25,14 @@ Kerim contractta şunları netleştirir:
 - UI-local input/output type taslağı
 - Auth, API, DB, autosave, publish ve benzer-vaka sorgusu non-goalları
 
-Emir ek ürün kararı vermeden formu planlayabildiğini, Burak her kuralı test cümlesine çevirebildiğini Issue #2'de gerekçeyle yazar.
+Maintainer kabul notu iki sınırı kilitler: içerik dili sabit allowlist değil, geçerli BCP 47/ISO etiketi; yıl UI diliminde tam sayı ve ters aralık kontrolüyle sınırlı. Mutlak yıl sınırı sonraki shared/domain kararıdır.
 
 ## Task 2 - CASE-BUILD-01
 
 **Owner:** Emir
 **Reviewer:** Kerim
 **Verifier:** Burak
-**Durum:** Contract gate ve ortak scaffold bekleniyor.
+**Durum:** Ready; ortak scaffold incelemesi ve dosya planı ilk adımdır.
 
 Emir erişilebilir form componentini geliştirir. Typed `onSubmit`, validation, ilk hataya focus, submitting, parent error, klavye ve 375 px davranışı görünür olmalıdır. API veya DB çağrısı eklenmez.
 

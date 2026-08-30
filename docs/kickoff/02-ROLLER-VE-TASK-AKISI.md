@@ -14,13 +14,15 @@ Taskın sınırını korur. Contract uygulanabilir mi, dosya planı doğru mu, d
 
 Davranışı bağımsız dener. Normal ve hata yolunu, klavye/focus davranışını ve 375 px görünümü test eder. Owner'ın kanıtını tekrar etmek verify değildir.
 
-## Pod 1 rol dönüşümü
+## Pod 1 maintainer devralması
 
 | Task | Owner | Reviewer | Verifier |
 |---|---|---|---|
 | `EVID-CONTRACT-01` | Taylan | Batıncan | Cemresu |
-| `EVID-BUILD-01` | Batıncan | Taylan | Cemresu |
-| `EVID-QUALITY-01` | Cemresu | Batıncan | Taylan |
+| `EVID-BUILD-01` | `buzzicra` + Codex | Bora | Codex + CI |
+| `EVID-QUALITY-01` | `buzzicra` + Codex | Bora | Codex + CI |
+
+Contract satırı tamamlanmış katkı geçmişidir. Build ve Quality satırları dağılan ekipten yeni iş beklemez. Codex uygulama/otomatik kanıt üretir; Bora scope, diff ve nihai kabulü kontrol eder.
 
 ## Pod 2 rol dönüşümü
 

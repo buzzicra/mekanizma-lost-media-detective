@@ -1,7 +1,7 @@
 # CASE-CONTRACT-01 - Vaka formu contractı
 
 **Pod:** Pod 2 - Vaka Formu
-**Durum:** Ready / ilk aktif task
+**Durum:** Done - 30 Ağustos 2026 maintainer kabulü
 **Owner:** Kerim Taşçı
 **Reviewer:** Emir Kaan Çatı (`@CodeAThing`)
 **Verifier:** Burak Şimşek
@@ -34,3 +34,10 @@ Kullanıcı, hatırladığı içerik için geçerli vaka formunu anlayarak doldu
 - Reviewer kararı.
 - Verifier kararı.
 - Açık karar ve blocker listesi.
+
+## Maintainer kabul notu
+
+- Kerim'in r1 Owner teslimi ilk UI dilimi için kabul edildi.
+- `contentLanguage` sabit ve eksik bir allowlist yerine geçerli BCP 47/ISO dil etiketi olarak ele alınır.
+- Bu UI diliminde yıl girdileri tam sayı ve `yearTo >= yearFrom` kuralıyla doğrulanır. Mutlak alt/üst yıl sınırı shared/domain kararıdır.
+- App scaffold ve gerçek kontrol komutları `CASE-BUILD-01` başlangıcındaki ortak bağımlılıktır.

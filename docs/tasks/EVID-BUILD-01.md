@@ -1,10 +1,10 @@
 # EVID-BUILD-01 - Kanıt kartı componenti
 
 **Pod:** Pod 1 - Kanıt Kartı
-**Durum:** Blocked
-**Owner:** Batıncan Kantar
-**Reviewer:** Taylan Akgün
-**Verifier:** Cemresu Demir
+**Durum:** Ready - maintainer devralması
+**Owner:** `buzzicra` + Codex
+**Reviewer:** Bora
+**Verifier:** Codex + CI
 **Depends on:** `EVID-CONTRACT-01`
 **Blocks:** `EVID-QUALITY-01`
 
@@ -14,6 +14,7 @@ Kullanıcı claim, kaynak, gerekçe ve durumu güvenli ve erişilebilir bir kart
 
 ## Teslim
 
+- Ortak app scaffold, package manager ve gerçek test/typecheck/lint komutları için küçük dosya planı.
 - Claim/source/rationale/status componenti.
 - Dört durum için metin ve görsel işaret.
 - `REJECTED` gerekçe görünürlüğü.

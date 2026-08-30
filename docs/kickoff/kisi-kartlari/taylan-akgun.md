@@ -1,5 +1,7 @@
 # Taylan Akgün - Kişisel görev kartı
 
+> **30 Ağustos güncellemesi:** Pod 1 dağıldı. Contract Owner katkın tamamlandı ve korunuyor; aşağıdaki görevler tarihsel plan kaydıdır. Senden yeni Build/Quality görevi beklenmiyor.
+
 **GitHub:** `@taylanakgn`
 **Pod:** Pod 1 - Kanıt Kartı
 **Task 1:** `EVID-CONTRACT-01` Owner / Contract Lead

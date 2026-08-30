@@ -4,7 +4,7 @@
 
 Lost Media Detective, adını bilmediği bir medya içeriğini arayan kişinin hatırladığı ayrıntılarla vaka açmasını ve topluluğun kaynaklı kanıtlarla araştırmasına yardım etmesini sağlar.
 
-İlk pilot bütün ürünü bitirmeye çalışmaz. İki görünür, test edilebilir arayüz dilimi üretir.
+İlk pilot bütün ürünü bitirmeye çalışmaz. İki görünür, test edilebilir arayüz dilimi üretir. Pod 1'in katılımcı ekibi dağıldığı için o dilim maintainer hattına devredilmiştir.
 
 ## Pod 1 - Kanıt Kartı
 
@@ -32,7 +32,7 @@ Bu pod ilk dilimde auth, API, DB, autosave veya publish yapmaz. Form geçerli ty
 
 ## Neden iki pod?
 
-- Altı kişilik ekipte herkesin rolü net kalır.
+- Aktif Pod 2 ekibinde herkesin rolü net kalır; Pod 1 devralması ayrıca görünürdür.
 - Her pod tek kullanıcı sonucu üzerinden ilerler.
 - Contract, build ve quality görevleri sırayla öğrenilir.
 - Aynı dosyada gereksiz çakışma azalır.

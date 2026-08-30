@@ -1,27 +1,23 @@
 # Buradan başlayın
 
-Bu repo iki aktif podla ilerliyor. Her pod önce contractı netleştirir, sonra componenti geliştirir, son olarak kalite ve handoff taskını tamamlar.
+Bu repo iki ürün hattıyla ilerliyor. Pod 2 katılımcı ekibiyle devam eder. Pod 1 dağıldığı için build ve quality tasklarını `buzzicra` + Codex maintainer hattı devralmıştır.
 
 ## Aktif ekipler
 
 | Pod | Contract Lead | Builder | Quality |
 |---|---|---|---|
-| Pod 1 - Kanıt Kartı | Taylan | Batıncan | Cemresu |
+| Pod 1 - Kanıt Kartı | Contract katkıları tamamlandı | `buzzicra` + Codex | Codex + CI |
 | Pod 2 - Vaka Formu | Kerim | Emir | Burak |
 
 ## Bugün ne yapılıyor?
 
 ### Pod 1
 
-Taylan `EVID-CONTRACT-01` r2 teslimini yaptı. Batıncan uygulanabilirlik onayı verdi. Cemresu contractı bağımsız test cümlelerine çevirip Verifier kararını [Issue #5](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/5) altında yazacak.
-
-`EVID-BUILD-01` henüz başlamaz. Cemresu kararı ve Bora + Codex kapısı beklenir.
+Taylan r2 teslimini, Batıncan review onayını, Cemresu verifier kararını verdi. [Issue #5](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/5) maintainer addendum ile Done oldu. [Issue #6](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/6) `buzzicra` + Codex sahipliğinde Ready durumundadır.
 
 ### Pod 2
 
-Kerim `CASE-CONTRACT-01` Owner'ıdır. İlk işi kod yazmak değil; vaka formunun alan, validation, state, focus ve scope kurallarını [Issue #2](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/2) altında teslim etmektir.
-
-Emir uygulanabilirlik review'u, Burak test edilebilirlik kararı verir. Sonra Bora + Codex kapısı açılır.
+Kerim vaka formu contractını [Issue #2](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/2) altında teslim etti. Bora maintainer kararıyla ilk taskı geçirdi. Emir'in aktif işi [CASE-BUILD-01](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/3) için repo incelemesi ve dosya planıdır; henüz plansız kod yazılmaz.
 
 ## Okuma sırası
 

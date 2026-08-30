@@ -1,8 +1,8 @@
 # Lost Media Detective — Proje A Teknik Kaynak Paketi
 
 **Belge durumu:** Uygulama öncesi teknik kaynak · v0.1
-**Son güncelleme:** 27 Ağustos 2026
-**Aktif pilot ekibi:** 6 katılımcı + Bora (baş maintainer ve entegrasyon sorumlusu)
+**Son güncelleme:** 30 Ağustos 2026
+**Aktif pilot ekibi:** Pod 2'de 3 katılımcı + Bora; dağılan Pod 1 için `buzzicra` + Codex maintainer devralması
 **Lisans hedefi:** AGPL-3.0
 **Dağıtım hedefi:** Provider-neutral Docker; ilk ortam Railway veya Render
 
@@ -47,7 +47,7 @@ Adını veya kaynağını hatırlamadığı bir medya içeriğini arayan kişi, 
 | Moderasyon | Hemen yayın + rapor + kuyruk + audit log + soft delete |
 | Hosting | Next.js standalone Docker; Vercel bağımlılığı yok |
 | Açık kaynak | AGPL-3.0 + her committe DCO sign-off |
-| Aktif pilot | 2 pod × 3 kişi; Bora ortak mimari, güvenlik ve entegrasyon |
+| Aktif pilot | Pod 2: 3 kişi; Pod 1: maintainer devralması; Bora ortak mimari, güvenlik ve entegrasyon |
 | Toplantı | Her pod Bora ile ayrı gün/saat; toplantılar üretim ve entegrasyon odaklı |
 
 ## 5. Kaynak doğruluğu sırası

@@ -1,7 +1,7 @@
 # CASE-BUILD-01 - Form shell ve validation UI
 
 **Pod:** Pod 2 - Vaka Formu
-**Durum:** Blocked
+**Durum:** Ready
 **Owner:** Emir Kaan Çatı (`@CodeAThing`)
 **Reviewer:** Kerim Taşçı
 **Verifier:** Burak Şimşek
@@ -14,6 +14,7 @@ Kullanıcı, contractta tanımlanan alanları ve doğrulama hatalarını erişil
 
 ## Teslim
 
+- Koddan önce repo/scaffold incelemesi ve 5-8 maddelik dosya planı.
 - Erişilebilir form componenti.
 - Typed `onSubmit`; DB/API çağrısı yok.
 - Invalid mesajları ve ilk hataya focus.

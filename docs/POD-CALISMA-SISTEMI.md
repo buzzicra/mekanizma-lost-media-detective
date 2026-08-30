@@ -2,7 +2,7 @@
 
 ## Kısa cevap
 
-İki aktif pod var. Her pod üç taskı sırayla tamamlar:
+İki ürün hattı var. Pod 2 katılımcılarla, dağılan Pod 1 maintainer hattıyla ilerler. İki hat da üç taskı sırayla tamamlar:
 
 ```text
 Contract -> Build -> Quality
@@ -14,8 +14,10 @@ Aynı podda iki task birlikte başlamaz. WIP limiti 1'dir.
 
 | Pod | Contract Lead | Builder | Quality | Bora'ya ulaşan kişi |
 |---|---|---|---|---|
-| Pod 1 - Kanıt Kartı | Taylan | Batıncan | Cemresu | Taylan |
+| Pod 1 - Kanıt Kartı | Contract geçmişi: Taylan | `buzzicra` + Codex | Codex + CI | Bora |
 | Pod 2 - Vaka Formu | Kerim | Emir | Burak | Kerim |
+
+Pod 1'de Taylan, Batıncan ve Cemresu'nun tamamlanmış Contract katkıları korunur. Dağılan ekipten yeni task beklenmez. Bu hatta Codex uygulama ve otomatik kanıtı, Bora review ve nihai kabulü sahiplenir; bu geçici maintainer istisnası normal pod rol modelinin yerine genellenmez.
 
 ## Roller her taskta döner
 

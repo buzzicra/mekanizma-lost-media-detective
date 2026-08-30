@@ -1,7 +1,7 @@
 # EVID-CONTRACT-01 - Kanıt kartı contractı
 
 **Pod:** Pod 1 - Kanıt Kartı
-**Durum:** Review / Verifier kararı bekleniyor
+**Durum:** Done - 30 Ağustos 2026 maintainer kabulü
 **Owner:** Taylan Akgün
 **Reviewer:** Batıncan Kantar
 **Verifier:** Cemresu Demir
@@ -35,3 +35,10 @@ Kullanıcı bir adayın iddiasını, kaynağını, gerekçesini ve değerlendirm
 - Reviewer uygulanabilirlik kararı.
 - Verifier test edilebilirlik kararı.
 - Açık karar/blocker listesi.
+
+## Maintainer addendum
+
+- Güncel hat adı `Pod 1 - Kanıt Kartı`dır.
+- Güncel kickoff kaynağı `docs/kickoff/03-POD-1-KANIT-KARTI.md` dosyasıdır.
+- Repo app scaffold'u, package manager ve gerçek test komutları içermiyor. Bu eksik, `EVID-BUILD-01` başlangıcındaki ortak blocker ve ilk plan maddesidir.
+- Taylan Owner teslimi, Batıncan Reviewer onayı ve Cemresu Verifier kararı Issue #5'te korunur.
