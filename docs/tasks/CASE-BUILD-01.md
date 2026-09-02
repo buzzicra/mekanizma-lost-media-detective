@@ -1,5 +1,7 @@
 # CASE-BUILD-01 - Form shell ve validation UI
 
+> **Superseded:** Bu dosya tarihsel kayıttır. Güncel schema görevi [FINAL-CASE-01](./FINAL-CASE-01.md), form UI görevi [FINAL-CASE-02](./FINAL-CASE-02.md).
+
 **Pod:** Pod 2 - Vaka Formu
 **Durum:** Ready
 **Owner:** Emir Kaan Çatı (`@CodeAThing`)

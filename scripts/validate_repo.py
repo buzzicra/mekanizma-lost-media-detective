@@ -11,7 +11,7 @@ from urllib.parse import unquote
 ROOT = Path(__file__).resolve().parents[1]
 TASKS = ROOT / "docs" / "tasks"
 PEOPLE = ROOT / "docs" / "kickoff" / "kisi-kartlari"
-EXPECTED_TASKS = {
+HISTORICAL_TASKS = {
     "CASE-CONTRACT-01",
     "CASE-BUILD-01",
     "CASE-QUALITY-01",
@@ -19,6 +19,15 @@ EXPECTED_TASKS = {
     "EVID-BUILD-01",
     "EVID-QUALITY-01",
 }
+FINAL_TASKS = {
+    "FINAL-CASE-01",
+    "FINAL-CASE-02",
+    "FINAL-CASE-03",
+    "FINAL-EVID-01",
+    "FINAL-EVID-02",
+    "FINAL-EVID-03",
+}
+EXPECTED_TASKS = HISTORICAL_TASKS | FINAL_TASKS
 EXPECTED_PEOPLE = {
     "batincan-kantar",
     "burak-simsek",
@@ -26,6 +35,14 @@ EXPECTED_PEOPLE = {
     "emir-kaan-cati",
     "kerim-tasci",
     "taylan-akgun",
+}
+FINAL_TASK_BY_PERSON = {
+    "batincan-kantar": "FINAL-EVID-02",
+    "burak-simsek": "FINAL-CASE-03",
+    "cemresu-demir": "FINAL-EVID-03",
+    "emir-kaan-cati": "FINAL-CASE-02",
+    "kerim-tasci": "FINAL-CASE-01",
+    "taylan-akgun": "FINAL-EVID-01",
 }
 REQUIRED_FIELDS = (
     "**Pod:**",
@@ -80,6 +97,9 @@ def validate_people(errors: list[str]) -> None:
         for number in range(1, 9):
             if f"### Görev {number}:" not in text:
                 errors.append(f"{path.relative_to(ROOT)} missing Görev {number}")
+        final_task = FINAL_TASK_BY_PERSON[path.stem]
+        if final_task not in text:
+            errors.append(f"{path.relative_to(ROOT)} missing active {final_task} handoff")
 
 
 def validate_links_and_privacy(errors: list[str]) -> None:
@@ -108,7 +128,8 @@ def main() -> int:
             print(f"ERROR: {error}")
         return 1
     print(
-        "PASS: 6 active tasks, 6 participant cards with Görev 1-8, "
+        "PASS: 6 final tasks, 6 historical task files, 6 participant cards "
+        "with final handoff and Görev 1-8 history, "
         "required fields, local links, privacy scan"
     )
     return 0

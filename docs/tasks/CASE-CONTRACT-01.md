@@ -6,7 +6,7 @@
 **Reviewer:** Emir Kaan Çatı (`@CodeAThing`)
 **Verifier:** Burak Şimşek
 **Depends on:** Yok
-**Blocks:** `CASE-BUILD-01`
+**Blocks:** `FINAL-CASE-01`, `FINAL-CASE-02`
 
 ## Kullanıcı sonucu
 
@@ -40,4 +40,4 @@ Kullanıcı, hatırladığı içerik için geçerli vaka formunu anlayarak doldu
 - Kerim'in r1 Owner teslimi ilk UI dilimi için kabul edildi.
 - `contentLanguage` sabit ve eksik bir allowlist yerine geçerli BCP 47/ISO dil etiketi olarak ele alınır.
 - Bu UI diliminde yıl girdileri tam sayı ve `yearTo >= yearFrom` kuralıyla doğrulanır. Mutlak alt/üst yıl sınırı shared/domain kararıdır.
-- App scaffold ve gerçek kontrol komutları `CASE-BUILD-01` başlangıcındaki ortak bağımlılıktır.
+- App scaffold ve gerçek kontrol komutları PR #13 ile tamamlandı; güncel kod geçişi `FINAL-CASE-01` ile başlar.

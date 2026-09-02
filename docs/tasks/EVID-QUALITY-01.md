@@ -1,5 +1,7 @@
 # EVID-QUALITY-01 - Durum, link ve OSS handoff
 
+> **Superseded:** Bu dosya tarihsel kayıttır. Güncel kalite görevi [FINAL-EVID-03](./FINAL-EVID-03.md).
+
 **Pod:** Pod 1 - Kanıt Kartı
 **Durum:** Blocked
 **Owner:** `buzzicra` + Codex

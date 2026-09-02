@@ -1,12 +1,16 @@
-# Başlangıç taskları
+# Task haritası
 
-Aktif pilot iki pod ve altı tasktan oluşur. Her pod `Contract -> Build -> Quality` sırasını izler; WIP limiti 1'dir.
+## Aktif final görevler
 
-30 Ağustos geçişi: iki Contract taskı Done. Pod 2 katılımcılarla devam eder. Dağılan Pod 1'in Build ve Quality tasklarını `buzzicra` + Codex maintainer hattı yürütür.
+| Hat | 1 — çekirdek | 2 — arayüz | 3 — kalite |
+| --- | --- | --- | --- |
+| Evidence | [FINAL-EVID-01](./FINAL-EVID-01.md) | [FINAL-EVID-02](./FINAL-EVID-02.md) | [FINAL-EVID-03](./FINAL-EVID-03.md) |
+| Case | [FINAL-CASE-01](./FINAL-CASE-01.md) | [FINAL-CASE-02](./FINAL-CASE-02.md) | [FINAL-CASE-03](./FINAL-CASE-03.md) |
 
-| Pod | Contract | Build | Quality |
-|---|---|---|---|
-| Pod 1 - Kanıt Kartı | [EVID-CONTRACT-01](./EVID-CONTRACT-01.md) | [EVID-BUILD-01](./EVID-BUILD-01.md) | [EVID-QUALITY-01](./EVID-QUALITY-01.md) |
-| Pod 2 - Vaka Formu | [CASE-CONTRACT-01](./CASE-CONTRACT-01.md) | [CASE-BUILD-01](./CASE-BUILD-01.md) | [CASE-QUALITY-01](./CASE-QUALITY-01.md) |
+İki hattın ilk görevi paralel başlayabilir. Aynı hattaki sonraki Owner plan/test matrisi hazırlayabilir; dependency ve public handoff hazır olmadan implementation başlamaz.
 
-`REPORT-*` taskları pilot dışında park edilmiştir. Yapılan contract çalışması GitHub issue #8 geçmişinde korunur.
+## Tarihsel task dosyaları
+
+`EVID-CONTRACT-01` ve `CASE-CONTRACT-01` kabul edilmiş ürün kontratlarıdır; final görevler bunları kaynak alır. Eski `*-BUILD-01` ve `*-QUALITY-01` dosyaları superseded geçmiş kaydıdır; aktif çalışma için kullanılmaz.
+
+Canlı durum: [Final sprint trackerı](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/1).

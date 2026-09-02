@@ -1,5 +1,7 @@
 # Pod 1 - Kanıt Kartı
 
+> **2 Eylül güncellemesi:** Aktif sıra `FINAL-EVID-01` (#14) → `FINAL-EVID-02` (#15) → `FINAL-EVID-03` (#16). Aşağıdaki eski Contract/Build/Quality planı tarihsel kayıttır.
+
 ## Ekip
 
 | Koltuk | Kişi |

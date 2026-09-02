@@ -1,5 +1,7 @@
 # EVID-BUILD-01 - Kanıt kartı componenti
 
+> **Superseded:** Bu dosya tarihsel kayıttır. Güncel model/helper görevi [FINAL-EVID-01](./FINAL-EVID-01.md), kart UI görevi [FINAL-EVID-02](./FINAL-EVID-02.md).
+
 **Pod:** Pod 1 - Kanıt Kartı
 **Durum:** Ready - maintainer devralması
 **Owner:** `buzzicra` + Codex
