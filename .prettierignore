@@ -1,0 +1,4 @@
+# Legacy coordination documents use intentional manual line wrapping.
+docs/
+.github/PULL_REQUEST_TEMPLATE.md
+pnpm-lock.yaml

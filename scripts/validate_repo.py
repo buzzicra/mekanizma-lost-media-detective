@@ -41,6 +41,17 @@ REQUIRED_FIELDS = (
 )
 LINK_RE = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
+IGNORED_PARTS = {
+    ".git",
+    ".next",
+    ".pnpm-store",
+    ".turbo",
+    "coverage",
+    "node_modules",
+    "out",
+    "playwright-report",
+    "test-results",
+}
 
 
 def validate_tasks(errors: list[str]) -> None:
@@ -73,7 +84,7 @@ def validate_people(errors: list[str]) -> None:
 
 def validate_links_and_privacy(errors: list[str]) -> None:
     for path in sorted(ROOT.rglob("*.md")):
-        if ".git" in path.parts:
+        if not IGNORED_PARTS.isdisjoint(path.relative_to(ROOT).parts):
             continue
         text = path.read_text(encoding="utf-8")
         if EMAIL_RE.search(text):

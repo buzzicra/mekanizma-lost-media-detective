@@ -15,16 +15,16 @@ Aktif pilot düzeni:
 - Toplam 6 aktif başlangıç taskı
 - Pod başına WIP limiti 1
 
-İki Contract taskı maintainer kararıyla Done durumundadır. Repo henüz uygulama scaffold'u içermiyor; iki Build taskının ilk ortak bağımlılığı scaffold ve gerçek test komutlarıdır.
+İki Contract taskı maintainer kararıyla Done durumundadır. Ortak uygulama scaffold'u Next.js, strict TypeScript, Tailwind, Zod, Vitest ve Playwright ile kurulmuştur. Build ve Quality görevleri aynı taban ve gerçek doğrulama komutları üzerinden ilerler.
 
 Canlı takip: [İlk Dikey Dilim - 2 Pod / 6 Task](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/1)
 
 ## Aktif podlar
 
-| Pod | Kullanıcı sonucu | Ekip | Task sırası |
-|---|---|---|---|
-| Pod 1 - Kanıt Kartı | Claim, kaynak, gerekçe ve durumun güvenli kartta görünmesi | `buzzicra` + Codex maintainer hattı; Contract katkıları Taylan, Batıncan, Cemresu | `EVID-CONTRACT-01` Done -> `EVID-BUILD-01` Ready -> `EVID-QUALITY-01` Blocked |
-| Pod 2 - Vaka Formu | Alan, validation, focus, loading ve hata durumları çalışan form | Kerim, Emir, Burak | `CASE-CONTRACT-01` -> `CASE-BUILD-01` -> `CASE-QUALITY-01` |
+| Pod                 | Kullanıcı sonucu                                                | Ekip                                                                              | Task sırası                                                                   |
+| ------------------- | --------------------------------------------------------------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Pod 1 - Kanıt Kartı | Claim, kaynak, gerekçe ve durumun güvenli kartta görünmesi      | `buzzicra` + Codex maintainer hattı; Contract katkıları Taylan, Batıncan, Cemresu | `EVID-CONTRACT-01` Done -> `EVID-BUILD-01` Ready -> `EVID-QUALITY-01` Blocked |
+| Pod 2 - Vaka Formu  | Alan, validation, focus, loading ve hata durumları çalışan form | Kerim, Emir, Burak                                                                | `CASE-CONTRACT-01` -> `CASE-BUILD-01` -> `CASE-QUALITY-01`                    |
 
 Rapor/moderasyon hattı ürün backlog'unda korunur; bu pilotta aktif pod değildir. Eski `REPORT-*` issue'ları yapılan emeği kaybetmemek için `status:parked` durumunda tutulur.
 
@@ -39,16 +39,19 @@ Rapor/moderasyon hattı ürün backlog'unda korunur; bu pilotta aktif pod değil
 
 ## Roller nasıl döner?
 
-| Task | Owner | Reviewer | Verifier |
-|---|---|---|---|
-| Contract | Contract Lead | Builder | Quality |
-| Build | Builder | Contract Lead | Quality |
-| Quality | Quality | Builder | Contract Lead |
+| Task     | Owner         | Reviewer      | Verifier      |
+| -------- | ------------- | ------------- | ------------- |
+| Contract | Contract Lead | Builder       | Quality       |
+| Build    | Builder       | Contract Lead | Quality       |
+| Quality  | Quality       | Builder       | Contract Lead |
 
 Owner üretir. Reviewer kapsam ve doğruluğu kontrol eder. Verifier davranışı bağımsız dener. Pod 2 bu insan kapılarını korur. Dağılan Pod 1, açıkça işaretlenmiş maintainer devralma istisnasıyla ilerler; Codex uygulama ve otomatik kanıtı, Bora nihai kabulü sahiplenir.
 
 ## Repo haritası
 
+- [`app/`](./app/) - Uygulama giriş noktaları ve global stiller
+- [`lib/i18n/`](./lib/i18n/) - Tip güvenli `tr` / `en` metin sözlüğü
+- [`tests/`](./tests/) - Unit/component ve Playwright E2E kontrolleri
 - [`docs/STATUS.md`](./docs/STATUS.md) - Güncel ilerleme ve bekleyen kapılar
 - [`docs/tasks/`](./docs/tasks/) - Altı aktif taskın tekil briefleri
 - [`docs/kickoff/`](./docs/kickoff/) - Pod ve kişi rehberleri
@@ -63,6 +66,30 @@ Owner teslimi -> Reviewer kararı -> Verifier kanıtı -> Bora + Codex kapısı 
 ```
 
 `Agent yaptı` kanıt değildir. Diff okunur; gerçek komutlar çalıştırılır; normal ve hata yolu görülür.
+
+## Yerel kurulum
+
+Node.js `20.9+` ve pnpm `10.27.0` gerekir.
+
+```bash
+pnpm install --frozen-lockfile
+pnpm exec playwright install chromium
+pnpm dev
+```
+
+## Doğrulama komutları
+
+```bash
+python3 scripts/validate_repo.py
+pnpm format:check
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm build
+pnpm test:e2e
+```
+
+Bu komutlardan biri çalışmıyorsa görev tamamlanmış sayılmaz. E2E için Playwright Chromium kurulmuş olmalıdır.
 
 ## Lisans
 
