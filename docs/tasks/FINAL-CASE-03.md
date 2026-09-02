@@ -1,13 +1,13 @@
 # FINAL-CASE-03 — Vaka formu otomatik kalite paketi
 
-**GitHub:** [Issue #19](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/19)  
-**Durum:** Blocked — #17 ve #18 entegrasyonu bekleniyor  
-**Pod:** Case / Vaka Formu  
-**Owner:** Burak (`@Burak98-lab`)  
-**Reviewer:** Emir  
-**Verifier:** Kerim  
-**Depends on:** `FINAL-CASE-01`, `FINAL-CASE-02`  
-**Blocks:** Case hattı final kalite kararı
+- **GitHub:** [Issue #19](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/19)
+- **Durum:** Blocked — #17 ve #18 entegrasyonu bekleniyor
+- **Pod:** Case / Vaka Formu
+- **Owner:** Burak (`@Burak98-lab`)
+- **Reviewer:** Emir
+- **Verifier:** Kerim
+- **Depends on:** `FINAL-CASE-01`, `FINAL-CASE-02`
+- **Blocks:** Case hattı final kalite kararı
 
 ## Kullanıcı sonucu
 

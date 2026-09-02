@@ -1,13 +1,13 @@
 # FINAL-CASE-01 — Vaka formu schema ve validation
 
-**GitHub:** [Issue #17](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/17)  
-**Durum:** Ready  
-**Pod:** Case / Vaka Formu  
-**Owner:** Kerim (`@kerimtasci`)  
-**Reviewer:** Burak  
-**Verifier:** Emir  
-**Depends on:** Ortak scaffold PR #13 ve kabul edilmiş #2 contract — Done  
-**Blocks:** `FINAL-CASE-02`
+- **GitHub:** [Issue #17](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/17)
+- **Durum:** Ready
+- **Pod:** Case / Vaka Formu
+- **Owner:** Kerim (`@kerimtasci`)
+- **Reviewer:** Burak
+- **Verifier:** Emir
+- **Depends on:** Ortak scaffold PR #13 ve kabul edilmiş #2 contract — Done
+- **Blocks:** `FINAL-CASE-02`
 
 ## Kullanıcı sonucu
 
