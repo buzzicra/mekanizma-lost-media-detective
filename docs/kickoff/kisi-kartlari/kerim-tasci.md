@@ -1,5 +1,7 @@
 # Kerim Taşçı - Kişisel görev kartı
 
+> **2 Eylül final güncellemesi:** Aktif görevin [FINAL-CASE-01 / Issue #17](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/17). Önceki contractını gerçek schema/validation kodu ve unit testlere çevireceksin. Aşağıdaki eski görevler tarihsel kayıttır.
+
 **GitHub:** `@kerimtasci`
 **Pod:** Pod 2 - Vaka Formu
 **Task 1:** `CASE-CONTRACT-01` Owner / Contract Lead

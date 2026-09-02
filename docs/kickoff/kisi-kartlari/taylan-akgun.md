@@ -1,6 +1,6 @@
 # Taylan Akgün - Kişisel görev kartı
 
-> **30 Ağustos güncellemesi:** Pod 1 dağıldı. Contract Owner katkın tamamlandı ve korunuyor; aşağıdaki görevler tarihsel plan kaydıdır. Senden yeni Build/Quality görevi beklenmiyor.
+> **2 Eylül final güncellemesi:** Aktif görevin [FINAL-EVID-01 / Issue #14](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/14). Evidence model/helper kodu ve EVID teknik koordinasyonu sende. Aşağıdaki 30 Ağustos notu ile sekiz görev tarihsel kayıttır; uygulanmayacak.
 
 **GitHub:** `@taylanakgn`
 **Pod:** Pod 1 - Kanıt Kartı

@@ -1,43 +1,34 @@
 # Buradan başlayın
 
-Bu repo iki ürün hattıyla ilerliyor. Pod 2 katılımcı ekibiyle devam eder. Pod 1 dağıldığı için build ve quality tasklarını `buzzicra` + Codex maintainer hattı devralmıştır.
+Altı katılımcının final kodlama görevi açıldı. Ortak scaffold `main`e alındı; ayrı proje kurmayın.
 
-## Aktif ekipler
+## Aktif hatlar
 
-| Pod | Contract Lead | Builder | Quality |
-|---|---|---|---|
-| Pod 1 - Kanıt Kartı | Contract katkıları tamamlandı | `buzzicra` + Codex | Codex + CI |
-| Pod 2 - Vaka Formu | Kerim | Emir | Burak |
+| Hat | Görev sırası | Bugün kodlayabilen |
+| --- | --- | --- |
+| Evidence | [#14](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/14) → [#15](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/15) → [#16](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/16) | Taylan |
+| Case | [#17](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/17) → [#18](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/18) → [#19](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/19) | Kerim |
 
-## Bugün ne yapılıyor?
+Blocked Owner boşta değildir: issueyu/contractı okur, agentla plan ve test matrisi çıkarır, dependency handoffunu bekler.
 
-### Pod 1
+## Başlamadan beş kapı
 
-Taylan r2 teslimini, Batıncan review onayını, Cemresu verifier kararını verdi. [Issue #5](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/5) maintainer addendum ile Done oldu. [Issue #6](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/6) `buzzicra` + Codex sahipliğinde Ready durumundadır.
+1. Doğru GitHub hesabınla erişimin var.
+2. `main` commitin `49be8c6` veya daha yeni.
+3. Yalnız kendi final issue'na ve dosya alanına çalışıyorsun.
+4. Kod için dependency tamamlanmış; issue `status:ready` veya `status:in-progress`.
+5. İlk agent turunda repo/contract incelemesi ve dosya planı yaptın.
 
-### Pod 2
-
-Kerim vaka formu contractını [Issue #2](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/2) altında teslim etti. Bora maintainer kararıyla ilk taskı geçirdi. Emir'in aktif işi [CASE-BUILD-01](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/3) için repo incelemesi ve dosya planıdır; henüz plansız kod yazılmaz.
+Bir kapı eksikse başka işe atlama. Blockerı kendi issue'na yaz; Bora'ya issue linkini gönder.
 
 ## Okuma sırası
 
 1. [Ürün ve pod haritası](./01-ÜRÜN-VE-POD-HARİTASI.md)
 2. [Roller ve task akışı](./02-ROLLER-VE-TASK-AKISI.md)
-3. Kendi pod rehberin:
-   - [Pod 1 - Kanıt Kartı](./03-POD-1-KANIT-KARTI.md)
-   - [Pod 2 - Vaka Formu](./04-POD-2-VAKA-FORMU.md)
-4. Kendi [kişisel görev kartın](./kisi-kartlari/)
-5. Aktif GitHub issue
+3. [Pod çalışma sistemi](../POD-CALISMA-SISTEMI.md)
+4. Kendi final task briefin: [`docs/tasks`](../tasks/)
+5. Kendi canlı GitHub issue'n
 
-## Başlamadan dört kapı
+## Eski işler
 
-- Doğru GitHub hesabınla repo erişimin var.
-- Yalnız kendi aktif issue'na çalışıyorsun.
-- Dependency tamamlanmış; issue `status:ready` veya `status:in-progress`.
-- Değişiklikten önce repo incelemesi ve dosya planı yaptın.
-
-Bir kapı eksikse gizlice başka işe geçme. Blocker'ı issue'ya yaz; Pod Lead üzerinden Bora'ya taşı.
-
-## Park edilen işler
-
-`REPORT-*` issue'ları bu pilotta aktif değildir. Emir ve Burak'ın Issue #8 altındaki çalışması silinmedi; sonraki dönem için korunuyor. Bora yeniden açmadan bu hatta devam edilmez.
+#2 ve #5 kabul edilmiş contract kaynaklarıdır. #3, #4, #6 ve #7 final tasklar tarafından yerine geçirildi. #8–#10 park edildi. Eski kişi kartındaki sekiz adım tarihsel eğitim kaydıdır; final issue ile çelişirse issue geçerlidir.

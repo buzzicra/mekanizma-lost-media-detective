@@ -1,6 +1,6 @@
 # Cemresu Demir - Kişisel görev kartı
 
-> **30 Ağustos güncellemesi:** Pod 1 dağıldı. Contract Verifier katkın tamamlandı ve korunuyor; aşağıdaki görevler tarihsel plan kaydıdır. Senden yeni Build/Quality görevi beklenmiyor.
+> **2 Eylül final güncellemesi:** Aktif görevin [FINAL-EVID-03 / Issue #16](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/16). Evidence test kodu, bug/retest takibi ve final kalite kararı sende. #14 ve #15 handoffuna kadar test matrisi hazırla. Aşağıdaki eski görevler tarihsel kayıttır.
 
 **GitHub:** `@cecesue`
 **Pod:** Pod 1 - Kanıt Kartı

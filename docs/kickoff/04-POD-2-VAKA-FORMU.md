@@ -1,5 +1,7 @@
 # Pod 2 - Vaka Formu
 
+> **2 Eylül güncellemesi:** Aktif sıra `FINAL-CASE-01` (#17) → `FINAL-CASE-02` (#18) → `FINAL-CASE-03` (#19). Aşağıdaki eski Contract/Build/Quality planı tarihsel kayıttır.
+
 ## Ekip
 
 | Koltuk | Kişi |

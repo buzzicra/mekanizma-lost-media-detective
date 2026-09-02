@@ -1,5 +1,7 @@
 # Emir Kaan Çatı - Kişisel görev kartı
 
+> **2 Eylül final güncellemesi:** Aktif görevin [FINAL-CASE-02 / Issue #18](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/18). Case Form UI kodu sende. #17 public API/handoffuna kadar component/focus planını hazırla; kod başlatma. Aşağıdaki eski görevler tarihsel kayıttır.
+
 **Aktif GitHub hesabı:** `@CodeAThing`
 **Pod:** Pod 2 - Vaka Formu
 **Task 1:** `CASE-CONTRACT-01` Reviewer

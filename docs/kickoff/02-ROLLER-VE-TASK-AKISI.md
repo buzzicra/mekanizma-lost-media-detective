@@ -4,66 +4,63 @@
 
 ### Owner
 
-Taskın çıktısından sorumlu kişi. Planı yazar, küçük diff üretir, agent çıktısını okur, kanıtı toplar.
+Kendi final taskının kod ve kanıtından sorumludur. Planı yazar, yalnız dosya alanında diff üretir, agent çıktısını okur, komutları çalıştırır.
 
 ### Reviewer
 
-Taskın sınırını korur. Contract uygulanabilir mi, dosya planı doğru mu, diff gereksiz alana taşıyor mu diye kontrol eder. Owner yerine kod yazmaz.
+Contract, scope ve dosya sınırını kontrol eder. Plan aşamasında devreye girer; PR sonunda gerekçeli `APPROVE` veya `CHANGES REQUESTED` verir.
 
 ### Verifier
 
-Davranışı bağımsız dener. Normal ve hata yolunu, klavye/focus davranışını ve 375 px görünümü test eder. Owner'ın kanıtını tekrar etmek verify değildir.
+Ownerın iddiasını belirli commit üzerinde bağımsız dener. Görünür davranışı, invalid/hata yolunu, klavye/focus ve 375 px sonucunu kanıtlar.
 
-## Pod 1 maintainer devralması
+## Evidence görevleri
 
-| Task | Owner | Reviewer | Verifier |
-|---|---|---|---|
-| `EVID-CONTRACT-01` | Taylan | Batıncan | Cemresu |
-| `EVID-BUILD-01` | `buzzicra` + Codex | Bora | Codex + CI |
-| `EVID-QUALITY-01` | `buzzicra` + Codex | Bora | Codex + CI |
+| Task | Owner | Reviewer | Verifier | Dependency |
+| --- | --- | --- | --- | --- |
+| FINAL-EVID-01 | Taylan | Cemresu | Batıncan | Scaffold hazır |
+| FINAL-EVID-02 | Batıncan | Taylan | Cemresu | FINAL-EVID-01 handoff |
+| FINAL-EVID-03 | Cemresu | Batıncan | Taylan | FINAL-EVID-01 + 02 |
 
-Contract satırı tamamlanmış katkı geçmişidir. Build ve Quality satırları dağılan ekipten yeni iş beklemez. Codex uygulama/otomatik kanıt üretir; Bora scope, diff ve nihai kabulü kontrol eder.
+## Case görevleri
 
-## Pod 2 rol dönüşümü
-
-| Task | Owner | Reviewer | Verifier |
-|---|---|---|---|
-| `CASE-CONTRACT-01` | Kerim | Emir | Burak |
-| `CASE-BUILD-01` | Emir | Kerim | Burak |
-| `CASE-QUALITY-01` | Burak | Emir | Kerim |
+| Task | Owner | Reviewer | Verifier | Dependency |
+| --- | --- | --- | --- | --- |
+| FINAL-CASE-01 | Kerim | Burak | Emir | Scaffold hazır |
+| FINAL-CASE-02 | Emir | Kerim | Burak | FINAL-CASE-01 handoff |
+| FINAL-CASE-03 | Burak | Emir | Kerim | FINAL-CASE-01 + 02 |
 
 ## Task nasıl ilerler?
 
-1. Owner aktif issue'yu ve teknik kaynağı okur.
-2. Kullanıcı sonucunu, scope'u ve non-goalları kendi cümlesiyle yazar.
-3. Kod taskıysa önce 5-8 maddelik dosya planı paylaşır.
-4. Reviewer planı kontrol eder.
-5. Owner küçük dilim üretir; diff'i okur.
-6. Reviewer gerekçeli karar verir.
-7. Verifier belirli commit/PR üzerinde bağımsız kontrol yapar.
-8. Pod Lead üç kanıtı Bora'ya getirir.
-9. Bora + Codex son kapıyı geçerse sonraki task açılır.
+1. Owner `main`i günceller ve kişisel branch açar.
+2. Aktif issue, `AGENTS.md` ve kaynak contract tamamen okunur.
+3. İlk agent turu yalnız dosya/public API/test planıdır.
+4. Plan issueya yazılır; Reviewer scope ve çakışmayı kontrol eder.
+5. Dependency Ready ise Owner küçük dilimler halinde kodlar.
+6. Owner diffi açıklar; format/lint/typecheck/test/build çalıştırır.
+7. Reviewer gerekçeli karar verir.
+8. Verifier belirli commit/PR üzerinde bağımsız kontrol yapar.
+9. Bora + Codex son kapıyı geçer; `PASS` veya `PASS WITH HANDOFF` verir.
 
-## Karar formatları
-
-Reviewer:
+## Reviewer formatı
 
 ```text
 Karar: APPROVE / CHANGES REQUESTED
+İncelediğim commit/PR:
 Contract uyumu:
 Scope ve dosya sınırı:
 Eksik veya risk:
 İstenen somut düzeltme:
 ```
 
-Verifier:
+## Verifier formatı
 
 ```text
 Karar: PASS / FAIL / BLOCKED
-Denediğim commit veya PR:
+Denediğim commit/PR:
 Komutlar ve exit code:
 Normal yol:
 Invalid veya hata yolu:
-Klavye ve 375 px:
+Klavye, focus ve 375 px:
 Kanıt linki:
 ```

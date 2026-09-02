@@ -6,7 +6,7 @@
 **Reviewer:** Batıncan Kantar
 **Verifier:** Cemresu Demir
 **Depends on:** Yok
-**Blocks:** `EVID-BUILD-01`
+**Blocks:** `FINAL-EVID-01`, `FINAL-EVID-02`
 
 ## Kullanıcı sonucu
 
@@ -40,5 +40,5 @@ Kullanıcı bir adayın iddiasını, kaynağını, gerekçesini ve değerlendirm
 
 - Güncel hat adı `Pod 1 - Kanıt Kartı`dır.
 - Güncel kickoff kaynağı `docs/kickoff/03-POD-1-KANIT-KARTI.md` dosyasıdır.
-- Repo app scaffold'u, package manager ve gerçek test komutları içermiyor. Bu eksik, `EVID-BUILD-01` başlangıcındaki ortak blocker ve ilk plan maddesidir.
+- App scaffold, package manager ve gerçek test komutları PR #13 ile tamamlandı; güncel kod geçişi `FINAL-EVID-01` ile başlar.
 - Taylan Owner teslimi, Batıncan Reviewer onayı ve Cemresu Verifier kararı Issue #5'te korunur.

@@ -4,7 +4,7 @@
 
 Lost Media Detective, adını bilmediği bir medya içeriğini arayan kişinin hatırladığı ayrıntılarla vaka açmasını ve topluluğun kaynaklı kanıtlarla araştırmasına yardım etmesini sağlar.
 
-İlk pilot bütün ürünü bitirmeye çalışmaz. İki görünür, test edilebilir arayüz dilimi üretir. Pod 1'in katılımcı ekibi dağıldığı için o dilim maintainer hattına devredilmiştir.
+Final katılımcı sprinti bütün ürünü bitirmeye çalışmaz. İki görünür, test edilebilir arayüz diliminin model, UI ve kalite kodunu üretir. Kalan ürün entegrasyonu Bora + Codex'e devredilir.
 
 ## Pod 1 - Kanıt Kartı
 
@@ -30,14 +30,14 @@ Kullanıcı şu davranışları görecek:
 
 Bu pod ilk dilimde auth, API, DB, autosave veya publish yapmaz. Form geçerli typed veriyi parent'a teslim eder.
 
-## Neden iki pod?
+## Neden iki hat?
 
-- Aktif Pod 2 ekibinde herkesin rolü net kalır; Pod 1 devralması ayrıca görünürdür.
-- Her pod tek kullanıcı sonucu üzerinden ilerler.
-- Contract, build ve quality görevleri sırayla öğrenilir.
+- Her kişi önceki katkısıyla bağlantılı tek final kodlama görevi taşır.
+- Her hat tek kullanıcı sonucu üzerinden ilerler.
+- Model, UI ve quality görevleri sırayla entegre edilir.
 - Aynı dosyada gereksiz çakışma azalır.
 - Rapor/moderasyon gibi daha riskli işler temel çalışma düzeni oturduktan sonra açılır.
 
 ## Ortak sınır
 
-Auth, DB, migration, storage, CI ve shared güvenlik altyapısı Bora'nın entegrasyon alanıdır. Pod bunlara ihtiyaç duyarsa değişikliği gizlice yapmaz; blocker açar.
+Auth, DB, migration, storage, CI, ortak config ve shared güvenlik altyapısı Bora'nın entegrasyon alanıdır. Katılımcı bunlara ihtiyaç duyarsa değişikliği gizlice yapmaz; blocker açar.

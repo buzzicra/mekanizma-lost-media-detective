@@ -2,89 +2,96 @@
 
 ## Kısa cevap
 
-İki ürün hattı var. Pod 2 katılımcılarla, dağılan Pod 1 maintainer hattıyla ilerler. İki hat da üç taskı sırayla tamamlar:
+İki ürün hattı, altı kişi, kişi başına tek final kodlama görevi var:
 
 ```text
-Contract -> Build -> Quality
+Evidence: Taylan model/helper → Batıncan UI → Cemresu kalite
+Case:     Kerim schema       → Emir UI      → Burak kalite
 ```
 
-Aynı podda iki task birlikte başlamaz. WIP limiti 1'dir.
+Herkes görevini bugün alır. İlk kişi kodlayabilir; ikinci ve üçüncü kişi agent planını/test matrisini hazırlar, dependency handoffundan sonra kodlar.
 
-## Aktif ekip
-
-| Pod | Contract Lead | Builder | Quality | Bora'ya ulaşan kişi |
-|---|---|---|---|---|
-| Pod 1 - Kanıt Kartı | Contract geçmişi: Taylan | `buzzicra` + Codex | Codex + CI | Bora |
-| Pod 2 - Vaka Formu | Kerim | Emir | Burak | Kerim |
-
-Pod 1'de Taylan, Batıncan ve Cemresu'nun tamamlanmış Contract katkıları korunur. Dağılan ekipten yeni task beklenmez. Bu hatta Codex uygulama ve otomatik kanıtı, Bora review ve nihai kabulü sahiplenir; bu geçici maintainer istisnası normal pod rol modelinin yerine genellenmez.
-
-## Roller her taskta döner
+## Görev ve rol haritası
 
 | Task | Owner | Reviewer | Verifier |
-|---|---|---|---|
-| Contract | Contract Lead | Builder | Quality |
-| Build | Builder | Contract Lead | Quality |
-| Quality | Quality | Builder | Contract Lead |
+| --- | --- | --- | --- |
+| FINAL-EVID-01 | Taylan | Cemresu | Batıncan |
+| FINAL-EVID-02 | Batıncan | Taylan | Cemresu |
+| FINAL-EVID-03 | Cemresu | Batıncan | Taylan |
+| FINAL-CASE-01 | Kerim | Burak | Emir |
+| FINAL-CASE-02 | Emir | Kerim | Burak |
+| FINAL-CASE-03 | Burak | Emir | Kerim |
 
 ### Owner
 
-- Kullanıcı sonucunu kendi cümlesiyle açıklar.
-- Önce repo ve dosya planı çıkarır.
-- Küçük diff üretir; her dosyanın neden değiştiğini anlatır.
-- Komut, exit code, ekran ve bilinen sınırları teslim eder.
+- Issueyu ve kaynak contractı okur.
+- İlk agent turunda kod değil, dosya/API/test planı ister.
+- Yalnız issue'daki dosya alanında kodlar.
+- Diffi anlayıp gerçek komut/exit code ile teslim eder.
 
 ### Reviewer
 
-- İlk kez PR sonunda değil, dosya planında devreye girer.
-- Contract uyumu, scope, dosya sınırı ve gereksiz altyapı değişikliğini kontrol eder.
-- `APPROVE` veya `CHANGES REQUESTED` kararını gerekçeyle yazar.
+- Plan aşamasında dosya sınırı ve contract uyumunu kontrol eder.
+- PR sonunda `APPROVE` veya `CHANGES REQUESTED` yazar.
 - Owner yerine işi tamamlamaz.
 
 ### Verifier
 
-- Owner'ın ekran görüntüsünü tekrar paylaşmaz; belirli commit veya PR'ı bağımsız dener.
-- Normal, invalid/hata, klavye/focus ve 375 px yolunu kontrol eder.
+- Belirli commit/PR üzerinde davranışı bağımsız dener.
+- Normal, invalid/hata, klavye/focus ve 375 px kanıtını kontrol eder.
 - `PASS`, `FAIL` veya `BLOCKED` kararını kanıtla yazar.
 
 ## Task yaşam döngüsü
 
 ```text
-Draft -> Ready -> In Progress -> Review -> Verify -> Done
-                    \-> Blocked -/
+Blocked (plan hazırlanabilir)
+→ dependency handoff
+→ Ready
+→ In Progress
+→ Review
+→ Verify
+→ Bora + Codex gate
+→ Done / PASS WITH HANDOFF
 ```
 
-1. Dependency tamamlanınca issue `status:ready` olur.
-2. Owner branch açar: `task/<TASK-ID>-kisa-aciklama`.
-3. İlk agent turu yalnız inceleme ve 5-8 maddelik dosya planıdır.
-4. Reviewer planı kontrol eder.
-5. Owner küçük dilimler halinde uygular ve diff'i okur.
-6. Reviewer gerekçeli karar verir.
-7. Verifier bağımsız test yapar.
-8. Pod Lead issue/PR linkini Bora'ya iletir.
-9. Bora + Codex kanıt kapısı geçerse task `Done`, sonraki task `Ready` olur.
+## Agent çalışma döngüsü
+
+1. `git status` ve güncel `main` kontrolü.
+2. Kişisel branch açma.
+3. Agentla repo + issue + contract okuma.
+4. Dosya sınırı, public API ve acceptance-test planını issueya yazma.
+5. Reviewer plan kontrolü.
+6. Küçük dilimler halinde kodlama.
+7. Diffi satır satır okuma; scope dışını geri alma.
+8. Gerçek format/lint/typecheck/test/build kanıtı.
+9. Reviewer + Verifier kararı.
+10. Bora + Codex final kontrolü.
+
+## Ortak config kuralı
+
+`package.json`, lockfile, TypeScript/Next/Vitest/Playwright configleri ve CI ortak maintainer alanıdır. Görev yeni dependency veya config değişikliği gerektiriyorsa kişi sessizce değiştirmez; issueya blocker yazar.
+
+## 20/40 blocker kuralı
+
+20 dakika aynı yerde dönülüyorsa issueya şunlar yazılır:
+
+```text
+Beklenen davranış:
+Görülen davranış:
+Denenenler:
+Eksik karar, erişim veya bağımlılık:
+Bu çözülünce ilk hareket:
+```
+
+40 dakikada çözülmezse Bora'ya issue linkiyle gidilir. Scope sessizce büyütülmez.
 
 ## Bitiş kanıtı
 
 - Issue ve PR linki
-- Değişen dosyaların kısa açıklaması
-- Normal ve hata/invalid ekranı
+- Task ID + kullanıcı sonucu
+- Değişen dosyalar ve nedenleri
+- Acceptance → test/ekran eşlemesi
 - Gerçek komutlar ve exit code
 - Reviewer kararı
 - Verifier kararı
-- Bilinen sınırlar
-- Sonraki task için handoff
-
-## 20/40 blocker kuralı
-
-20 dakika aynı yerde dönüyorsanız issue'ya yazın:
-
-```text
-Beklediğimiz davranış:
-Gördüğümüz davranış:
-Denediklerimiz:
-Eksik karar, erişim veya bağımlılık:
-Bu çözülünce ilk yapacağımız:
-```
-
-40 dakikada çözülmezse Pod Lead Bora'ya issue linkiyle ulaşır. Scope sessizce büyütülmez.
+- Bilinen sınırlar ve Bora + Codex handoffu

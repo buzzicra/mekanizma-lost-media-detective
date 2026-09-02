@@ -1,5 +1,7 @@
 # Burak Şimşek - Kişisel görev kartı
 
+> **2 Eylül final güncellemesi:** Aktif görevin [FINAL-CASE-03 / Issue #19](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/19). Case test/quality kodu sende. #17 ve #18 handoffuna kadar AC-01..AC-17 test matrisini hazırla. GitHub daveti hâlâ bekliyorsa kabul et veya fork kullan. Aşağıdaki eski görevler tarihsel kayıttır.
+
 **GitHub:** `@Burak98-lab`
 **Pod:** Pod 2 - Vaka Formu
 **Task 1:** `CASE-CONTRACT-01` Verifier

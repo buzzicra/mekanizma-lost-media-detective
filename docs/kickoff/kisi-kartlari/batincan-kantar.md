@@ -1,6 +1,6 @@
 # Batıncan Kantar - Kişisel görev kartı
 
-> **30 Ağustos güncellemesi:** Pod 1 dağıldı. Contract Reviewer katkın tamamlandı ve korunuyor; aşağıdaki görevler tarihsel plan kaydıdır. Senden yeni Build/Quality görevi beklenmiyor.
+> **2 Eylül final güncellemesi:** Aktif görevin [FINAL-EVID-02 / Issue #15](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/15). Evidence Card UI kodu ve UI kalite sahipliği sende. #14 handoffuna kadar plan hazırla; kod başlatma. Aşağıdaki eski görevler tarihsel kayıttır.
 
 **GitHub:** `@btncnkntr`
 **Pod:** Pod 1 - Kanıt Kartı

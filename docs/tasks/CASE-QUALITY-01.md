@@ -1,5 +1,7 @@
 # CASE-QUALITY-01 - Form kalite ve handoff
 
+> **Superseded:** Bu dosya tarihsel kayıttır. Güncel kalite görevi [FINAL-CASE-03](./FINAL-CASE-03.md).
+
 **Pod:** Pod 2 - Vaka Formu
 **Durum:** Blocked
 **Owner:** Burak Şimşek
