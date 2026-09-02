@@ -12,6 +12,14 @@ git pull --ff-only
 git switch -c task/CASE-CONTRACT-01-kisa-aciklama
 ```
 
+Kurulum:
+
+```bash
+corepack enable
+pnpm install --frozen-lockfile
+pnpm exec playwright install chromium
+```
+
 ## 3. Agenta önce inceleme yaptır
 
 İlk turda kod isteme. `AGENTS.md`, aktif issue, ilgili dokümanlar, repo durumu, mevcut patternler ve gerçek doğrulama komutları incelenir. Dosya sınırını ve doğrulama planını issue'ya yaz. Başlangıç promptları maintainer tarafından özel olarak yönetilir; public repoya eklenmez.
@@ -23,6 +31,19 @@ Yalnız issue kapsamındaki dosyaları değiştir. Yeni dependency, ortak schema
 ## 5. Kanıtla
 
 Issue ve PR'da gerçek komutları, exit codeları, ekran kanıtını ve bilinen sınırları paylaş.
+
+Uygulama kodu değiştiren görevlerin asgari kapısı:
+
+```bash
+pnpm format:check
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm build
+pnpm test:e2e
+```
+
+Yalnız doküman değiştiren görevlerde `python3 scripts/validate_repo.py` da çalıştırılır. Issue farklı veya ek bir komut yazıyorsa issue önceliklidir.
 
 ## 6. DCO ile commit et
 
