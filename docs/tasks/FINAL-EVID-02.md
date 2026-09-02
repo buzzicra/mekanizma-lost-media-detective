@@ -1,13 +1,13 @@
 # FINAL-EVID-02 — Evidence Card arayüzü
 
-**GitHub:** [Issue #15](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/15)  
-**Durum:** Blocked — #14 public API/handoff bekleniyor  
-**Pod:** Evidence / Kanıt Kartı  
-**Owner:** Batıncan (`@btncnkntr`)  
-**Reviewer:** Taylan  
-**Verifier:** Cemresu  
-**Depends on:** `FINAL-EVID-01`  
-**Blocks:** `FINAL-EVID-03`
+- **GitHub:** [Issue #15](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/15)
+- **Durum:** Blocked — #14 public API/handoff bekleniyor
+- **Pod:** Evidence / Kanıt Kartı
+- **Owner:** Batıncan (`@btncnkntr`)
+- **Reviewer:** Taylan
+- **Verifier:** Cemresu
+- **Depends on:** `FINAL-EVID-01`
+- **Blocks:** `FINAL-EVID-03`
 
 ## Kullanıcı sonucu
 

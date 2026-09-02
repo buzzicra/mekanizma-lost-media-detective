@@ -1,13 +1,13 @@
 # FINAL-EVID-03 — Evidence otomatik kalite paketi
 
-**GitHub:** [Issue #16](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/16)  
-**Durum:** Blocked — #14 ve #15 entegrasyonu bekleniyor  
-**Pod:** Evidence / Kanıt Kartı  
-**Owner:** Cemresu (`@cecesue`)  
-**Reviewer:** Batıncan  
-**Verifier:** Taylan  
-**Depends on:** `FINAL-EVID-01`, `FINAL-EVID-02`  
-**Blocks:** Evidence hattı final kalite kararı
+- **GitHub:** [Issue #16](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/16)
+- **Durum:** Blocked — #14 ve #15 entegrasyonu bekleniyor
+- **Pod:** Evidence / Kanıt Kartı
+- **Owner:** Cemresu (`@cecesue`)
+- **Reviewer:** Batıncan
+- **Verifier:** Taylan
+- **Depends on:** `FINAL-EVID-01`, `FINAL-EVID-02`
+- **Blocks:** Evidence hattı final kalite kararı
 
 ## Kullanıcı sonucu
 

@@ -1,13 +1,13 @@
 # FINAL-CASE-02 — Vaka Formu arayüzü
 
-**GitHub:** [Issue #18](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/18)  
-**Durum:** Blocked — #17 public API/handoff bekleniyor  
-**Pod:** Case / Vaka Formu  
-**Owner:** Emir (`@CodeAThing`)  
-**Reviewer:** Kerim  
-**Verifier:** Burak  
-**Depends on:** `FINAL-CASE-01`  
-**Blocks:** `FINAL-CASE-03`
+- **GitHub:** [Issue #18](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/18)
+- **Durum:** Blocked — #17 public API/handoff bekleniyor
+- **Pod:** Case / Vaka Formu
+- **Owner:** Emir (`@CodeAThing`)
+- **Reviewer:** Kerim
+- **Verifier:** Burak
+- **Depends on:** `FINAL-CASE-01`
+- **Blocks:** `FINAL-CASE-03`
 
 ## Kullanıcı sonucu
 
