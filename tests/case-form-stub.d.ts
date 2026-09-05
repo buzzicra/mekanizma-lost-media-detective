@@ -4,7 +4,7 @@
  */
 declare module "@/components/case-create/CaseForm" {
   import type React from "react";
-  import type { CaseFormProps } from "../fixtures/case-form";
+  import type { CaseFormProps } from "./fixtures/case-form";
 
   export const CaseForm: React.ComponentType<CaseFormProps>;
 }

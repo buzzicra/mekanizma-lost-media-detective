@@ -75,7 +75,9 @@ export function CaseFormHarness({
           type="button"
           data-testid="trigger-parent-error"
           onClick={() =>
-            setSubmitError("Sunucu hatası: Vaka kaydedilemedi. Lütfen tekrar deneyin.")
+            setSubmitError(
+              "Sunucu hatası: Vaka kaydedilemedi. Lütfen tekrar deneyin.",
+            )
           }
         >
           Simulate Parent Error
