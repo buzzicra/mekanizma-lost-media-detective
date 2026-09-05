@@ -220,7 +220,11 @@ export const emptyCaseFormFixture: CaseFormInput = {
  */
 export const invalidSingleFieldFixtures: Record<
   keyof CaseFormInput,
-  { input: CaseFormInput; invalidField: keyof CaseFormInput; description: string }
+  {
+    input: CaseFormInput;
+    invalidField: keyof CaseFormInput;
+    description: string;
+  }
 > = {
   title: {
     input: { ...validCaseFormFixture, title: "Kısa başlık" }, // 11 kr
@@ -248,17 +252,31 @@ export const invalidSingleFieldFixtures: Record<
     description: "Görüldüğü yer 2 karakterden kısa olduğunda invalid",
   },
   yearUnknown: {
-    input: { ...validCaseFormFixture, yearUnknown: false, yearFrom: "", yearTo: "" },
+    input: {
+      ...validCaseFormFixture,
+      yearUnknown: false,
+      yearFrom: "",
+      yearTo: "",
+    },
     invalidField: "yearUnknown",
     description: "Yıl bilinmiyor seçili değilken iki yıl da boşsa invalid",
   },
   yearFrom: {
-    input: { ...validCaseFormFixture, yearUnknown: false, yearFrom: "ondalık_veya_metin" },
+    input: {
+      ...validCaseFormFixture,
+      yearUnknown: false,
+      yearFrom: "ondalık_veya_metin",
+    },
     invalidField: "yearFrom",
     description: "Başlangıç yılı tam sayı olmadığında invalid",
   },
   yearTo: {
-    input: { ...validCaseFormFixture, yearUnknown: false, yearFrom: "2010", yearTo: "2000" },
+    input: {
+      ...validCaseFormFixture,
+      yearUnknown: false,
+      yearFrom: "2010",
+      yearTo: "2000",
+    },
     invalidField: "yearTo",
     description: "Bitiş yılı başlangıç yılından küçük olduğunda invalid",
   },
