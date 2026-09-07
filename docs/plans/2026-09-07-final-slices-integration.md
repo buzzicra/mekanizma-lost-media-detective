@@ -1,6 +1,6 @@
 # Final Dilimler Entegrasyon Planı
 
-> Tarih: 2026-09-07 | Durum: LOCAL PASS | Çıktı: local çalışan uygulama + GitHub PR
+> Tarih: 2026-09-07 | Durum: MERGED | Çıktı: çalışan uygulama + yeşil GitHub CI
 
 ## 0. Kapsam
 
@@ -111,7 +111,7 @@ app/cases/new/page.tsx
 - Ana sayfa iki çalışan UI dilimine gidiyor; persistence yokluğu arayüzde açık yazıyor.
 - 375 px mobil ve masaüstü görünüm elle incelendi; taşma görülmedi.
 
-Kalan dış kapı: branch'in `buzzicra` kimliğiyle GitHub'a gönderilmesi ve uzak CI sonucu. Issue #14-#19 açık kalacaktır.
+GitHub kapısı: [PR #23](https://github.com/buzzicra/mekanizma-lost-media-detective/pull/23) `buzzicra` kimliğiyle merge edildi. [Main CI](https://github.com/buzzicra/mekanizma-lost-media-detective/actions/runs/34139647899) geçti. Issue #14-#19 açık kaldı.
 
 ## 10. Doğrulama kanıtı
 
