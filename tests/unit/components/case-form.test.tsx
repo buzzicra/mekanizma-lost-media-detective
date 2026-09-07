@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
@@ -450,8 +450,7 @@ describe("CaseForm Component Davranış Testleri (FINAL-CASE-03)", () => {
   /**
    * AC-14: submitError (parent error) sonrası form değerlerinin korunması
    */
-  it("AC-14: parent error geldiğinde hata mesajı duyurulur ve kullanıcının düzenlediği değerler korunur", async () => {
-    const user = userEvent.setup();
+  it("AC-14: parent error geldiğinde hata mesajı duyurulur ve kullanıcının düzenlediği değerler korunur", () => {
     const { rerender } = render(
       <CaseForm
         initialValues={validCaseFormFixture}
@@ -463,8 +462,7 @@ describe("CaseForm Component Davranış Testleri (FINAL-CASE-03)", () => {
 
     const editedTitle = "Kullanıcının düzenlediği kayıp yapım";
     const titleInput = screen.getByLabelText(/başlık|title/i);
-    await user.clear(titleInput);
-    await user.type(titleInput, editedTitle);
+    fireEvent.change(titleInput, { target: { value: editedTitle } });
 
     // Parent error simüle edilir
     const errorText = "Sunucu hatası: Vaka oluşturulamadı.";

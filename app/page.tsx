@@ -42,7 +42,7 @@ export default function HomePage() {
       </section>
 
       <footer>
-        <a href={repositoryUrl} rel="noopener noreferrer" target="_blank">
+        <a href={repositoryUrl} rel="noreferrer" target="_blank">
           {t("home.github")}
           <span aria-hidden="true">↗</span>
         </a>
