@@ -401,6 +401,17 @@ describe("CaseForm Component Davranış Testleri (FINAL-CASE-03)", () => {
     expect(handleSubmit).not.toHaveBeenCalled();
     // DOM sırasındaki ilk invalid alan title'dır
     expect(screen.getByLabelText(/başlık|title/i)).toHaveFocus();
+    expect(screen.getByLabelText(/başlık|title/i)).toHaveAttribute(
+      "aria-invalid",
+      "true",
+    );
+    expect(screen.getByLabelText(/görüldüğü yer|where/i)).toHaveAttribute(
+      "aria-invalid",
+      "true",
+    );
+    expect(
+      screen.getByLabelText(/güvenlik onayı|özel veri|safety/i),
+    ).toHaveAttribute("aria-invalid", "true");
   });
 
   /**
@@ -439,7 +450,8 @@ describe("CaseForm Component Davranış Testleri (FINAL-CASE-03)", () => {
   /**
    * AC-14: submitError (parent error) sonrası form değerlerinin korunması
    */
-  it("AC-14: parent error geldiğinde hata mesajı duyurulur ve formdaki değerler korunur", async () => {
+  it("AC-14: parent error geldiğinde hata mesajı duyurulur ve kullanıcının düzenlediği değerler korunur", async () => {
+    const user = userEvent.setup();
     const { rerender } = render(
       <CaseForm
         initialValues={validCaseFormFixture}
@@ -448,6 +460,11 @@ describe("CaseForm Component Davranış Testleri (FINAL-CASE-03)", () => {
         onSubmit={vi.fn()}
       />,
     );
+
+    const editedTitle = "Kullanıcının düzenlediği kayıp yapım";
+    const titleInput = screen.getByLabelText(/başlık|title/i);
+    await user.clear(titleInput);
+    await user.type(titleInput, editedTitle);
 
     // Parent error simüle edilir
     const errorText = "Sunucu hatası: Vaka oluşturulamadı.";
@@ -464,9 +481,7 @@ describe("CaseForm Component Davranış Testleri (FINAL-CASE-03)", () => {
     expect(screen.getByText(new RegExp(errorText, "i"))).toBeInTheDocument();
 
     // Form alanlarındaki değerler silinmemiş olmalıdır
-    expect(screen.getByLabelText(/başlık|title/i)).toHaveValue(
-      validCaseFormFixture.title,
-    );
+    expect(screen.getByLabelText(/başlık|title/i)).toHaveValue(editedTitle);
     expect(screen.getByLabelText(/görüldüğü yer|where/i)).toHaveValue(
       validCaseFormFixture.seenOn,
     );

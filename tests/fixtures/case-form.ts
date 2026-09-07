@@ -5,53 +5,12 @@
  * test verilerini içerir. Production ortamında kullanılmaz.
  * Flaky testleri önlemek için dinamik (tarih/random) veri içermez.
  */
+import type {
+  CaseFormInput,
+  ValidCaseFormData,
+} from "@/features/case-create/model/case-form";
 
-export const MEDIA_TYPES = [
-  "VIDEO",
-  "AUDIO",
-  "IMAGE",
-  "GAME",
-  "WEBSITE",
-  "ADVERTISEMENT",
-  "FILM_TV",
-  "PRINT",
-  "OTHER",
-] as const;
-
-export type MediaType = (typeof MEDIA_TYPES)[number];
-
-export type CaseFormInput = {
-  title: string;
-  mediaType: MediaType | "";
-  contentLanguage: string;
-  rememberedDetails: string;
-  seenOn: string;
-  yearUnknown: boolean;
-  yearFrom: string;
-  yearTo: string;
-  previousSearches: string;
-  safetyConfirmed: boolean;
-};
-
-export type ValidCaseFormData = {
-  title: string;
-  mediaType: MediaType;
-  contentLanguage: string;
-  rememberedDetails: string;
-  seenOn: string;
-  yearUnknown: boolean;
-  yearFrom?: number;
-  yearTo?: number;
-  previousSearches: string;
-  safetyConfirmed: true;
-};
-
-export type CaseFormProps = {
-  initialValues?: Partial<CaseFormInput>;
-  isSubmitting?: boolean;
-  submitError?: string | null;
-  onSubmit: (data: ValidCaseFormData) => void | Promise<void>;
-};
+export type { CaseFormInput, ValidCaseFormData };
 
 /**
  * 1. Tamamen geçerli ve eksiksiz form verisi

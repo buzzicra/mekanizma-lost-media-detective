@@ -1,6 +1,6 @@
 # Final Dilimler Entegrasyon Planı
 
-> Tarih: 2026-09-07 | Durum: IN PROGRESS | Çıktı: local çalışan uygulama + GitHub PR
+> Tarih: 2026-09-07 | Durum: LOCAL PASS | Çıktı: local çalışan uygulama + GitHub PR
 
 ## 0. Kapsam
 
@@ -101,3 +101,30 @@ app/cases/new/page.tsx
 - Issue'lar otomatik kapanmayacak; PR body `Closes` kullanmayacak.
 - Merge/publish kararı ayrı maintainer kapısıdır.
 - Sonuç, komut exit kodları ve kalan riskler bu belgeye eklenecektir.
+
+## 9. Uygulama sonucu
+
+- Kerim'in schema/validation teslimi gerçek formun tek validation kaynağı oldu.
+- Burak'ın fixture/component/a11y paketi ambient stub yerine production bileşenini test ediyor.
+- Evidence model, kart, güvenli URL davranışı ve dört status görünümü eklendi.
+- Case form, hata özeti, focus, double-submit engeli ve validation sonucu route'a bağlandı.
+- Ana sayfa iki çalışan UI dilimine gidiyor; persistence yokluğu arayüzde açık yazıyor.
+- 375 px mobil ve masaüstü görünüm elle incelendi; taşma görülmedi.
+
+Kalan dış kapı: branch'in `buzzicra` kimliğiyle GitHub'a gönderilmesi ve uzak CI sonucu. Issue #14-#19 açık kalacaktır.
+
+## 10. Doğrulama kanıtı
+
+| Kapı | Sonuç |
+|---|---|
+| Repo contract | `python3 scripts/validate_repo.py` → PASS |
+| Format | `pnpm format:check` → exit 0 |
+| Lint | `pnpm lint` → exit 0 |
+| TypeScript | `pnpm typecheck` → exit 0 |
+| Unit/component | `pnpm test` → 6 dosya, 95 test geçti |
+| Production build | `pnpm build` → `/`, `/cases/new`, `/evidence` statik üretildi |
+| Browser/a11y | `pnpm test:e2e` → 12/12 geçti; desktop + 375 px |
+| Dependency audit | `pnpm audit --audit-level=high` → bilinen açık yok |
+| Görsel QA | Masaüstü ve 375 px manuel inceleme → taşma/okunabilirlik sorunu görülmedi |
+
+İlk tam kapı README formatı nedeniyle durdu; `pnpm format` sonrası bütün zincir baştan çalıştırıldı ve geçti.

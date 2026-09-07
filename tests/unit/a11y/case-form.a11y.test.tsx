@@ -62,7 +62,14 @@ describe("CaseForm Erişilebilirlik (a11y) ve Klavye Testleri (FINAL-CASE-03)", 
     expect(describedBy).toBeTruthy();
 
     if (describedBy) {
-      const errorElement = document.getElementById(describedBy);
+      const describedByIds = describedBy.split(/\s+/);
+      const errorElement = describedByIds
+        .map((id) => document.getElementById(id))
+        .find((element) => element?.id.endsWith("-error"));
+
+      expect(describedByIds.every((id) => document.getElementById(id))).toBe(
+        true,
+      );
       expect(errorElement).toBeInTheDocument();
       expect(errorElement?.textContent).toMatch(
         /başlık zorunlu|title is required/i,
@@ -104,7 +111,7 @@ describe("CaseForm Erişilebilirlik (a11y) ve Klavye Testleri (FINAL-CASE-03)", 
     );
 
     const submitBtn = screen.getByRole("button", {
-      name: /vaka oluştur|gönder|kaydet|submit|gönderiliyor/i,
+      name: /hazırlanıyor|gönderiliyor|submitting/i,
     });
     expect(
       submitBtn.hasAttribute("disabled") ||

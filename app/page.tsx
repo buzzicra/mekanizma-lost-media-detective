@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { defaultLocale, translate } from "@/lib/i18n/messages";
 
 const repositoryUrl =
@@ -8,7 +10,7 @@ export default function HomePage() {
     translate(defaultLocale, key);
 
   return (
-    <main className="shell">
+    <main className="shell" id="main-content">
       <div className="grain" aria-hidden="true" />
       <section className="hero" aria-labelledby="page-title">
         <p className="eyebrow">{t("home.eyebrow")}</p>
@@ -27,6 +29,7 @@ export default function HomePage() {
           </p>
           <h2>{t("home.evidence.title")}</h2>
           <p>{t("home.evidence.description")}</p>
+          <Link href="/evidence">{t("home.evidence.action")} →</Link>
         </article>
         <article>
           <p className="track-number" aria-hidden="true">
@@ -34,11 +37,12 @@ export default function HomePage() {
           </p>
           <h2>{t("home.case.title")}</h2>
           <p>{t("home.case.description")}</p>
+          <Link href="/cases/new">{t("home.case.action")} →</Link>
         </article>
       </section>
 
       <footer>
-        <a href={repositoryUrl} rel="noreferrer" target="_blank">
+        <a href={repositoryUrl} rel="noopener noreferrer" target="_blank">
           {t("home.github")}
           <span aria-hidden="true">↗</span>
         </a>

@@ -3,10 +3,20 @@
 :root {
   --ink: #18211b;
   --paper: #f1eddf;
+  --paper-deep: #e4deca;
   --acid: #dcff48;
-  --rust: #c85737;
+  --rust: #a73f27;
+  --blue: #2d5f73;
   --line: rgba(24, 33, 27, 0.22);
-  --muted: rgba(24, 33, 27, 0.69);
+  --muted: #536057;
+  --danger-surface: #f6d7cd;
+  --success-surface: #d8e8cf;
+  --font-display:
+    "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  --font-body: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  --font-code: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --radius-control: 0.2rem;
+  --focus: 3px solid var(--rust);
 }
 
 * {
@@ -22,7 +32,7 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--paper);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
   text-rendering: optimizeLegibility;
 }
 
@@ -33,6 +43,23 @@ a {
 a:focus-visible {
   outline: 3px solid var(--rust);
   outline-offset: 5px;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 10;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  color: var(--paper);
+  background: var(--ink);
+  font-family: var(--font-code);
+  font-weight: 800;
+  transform: translateY(calc(-100% - 1rem));
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 .shell {
@@ -86,6 +113,7 @@ h1 {
   font-weight: 800;
   letter-spacing: -0.075em;
   line-height: 0.89;
+  font-family: var(--font-display);
 }
 
 .lede {
@@ -131,6 +159,16 @@ h1 {
   gap: 1rem 1.5rem;
   min-height: 15rem;
   padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.tracks article > a {
+  grid-column: 2;
+  width: fit-content;
+  font-family: var(--font-code);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-underline-offset: 0.3em;
+  text-transform: uppercase;
 }
 
 .tracks article + article {
@@ -208,6 +246,98 @@ footer p {
   text-underline-offset: 0.3em;
 }
 
+.workbench-shell {
+  width: min(calc(100% - 2rem), 76rem);
+  margin-inline: auto;
+  padding-block: 1rem clamp(4rem, 8vw, 8rem);
+}
+
+.workbench-nav {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  border-top: 1px solid var(--ink);
+  padding-block: 1rem;
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.workbench-nav a,
+.next-route a {
+  color: var(--ink);
+  text-underline-offset: 0.3em;
+}
+
+.workbench-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.65fr);
+  gap: 1.5rem 4rem;
+  align-items: end;
+  padding-block: clamp(3.5rem, 9vw, 7rem);
+}
+
+.workbench-header .eyebrow {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.workbench-header h1 {
+  max-width: 13ch;
+  font-size: clamp(2.8rem, 7vw, 6.7rem);
+}
+
+.workbench-header > p:last-child {
+  max-width: 34rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  line-height: 1.55;
+}
+
+.evidence-example {
+  display: grid;
+  grid-template-columns: minmax(13rem, 0.45fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.example-note {
+  border-top: 0.4rem solid var(--ink);
+  padding-top: 1rem;
+}
+
+.example-note > p:first-child {
+  margin: 0 0 1rem;
+  color: var(--rust);
+  font-family: var(--font-code);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.example-note h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.05;
+}
+
+.example-note > p:last-child {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.next-route {
+  margin: 4rem 0 0;
+  border-top: 1px solid var(--ink);
+  padding-top: 1.25rem;
+  font-family: var(--font-code);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
 @media (max-width: 700px) {
   .shell {
     padding: 1rem;
@@ -231,6 +361,10 @@ footer p {
     padding-inline: 0;
   }
 
+  .tracks article > a {
+    grid-column: 1 / -1;
+  }
+
   .tracks article + article {
     border-top: 1px solid var(--ink);
     border-left: 0;
@@ -243,6 +377,15 @@ footer p {
 
   footer p {
     text-align: left;
+  }
+
+  .workbench-header,
+  .evidence-example {
+    grid-template-columns: 1fr;
+  }
+
+  .workbench-header {
+    padding-block: 4rem;
   }
 }
 

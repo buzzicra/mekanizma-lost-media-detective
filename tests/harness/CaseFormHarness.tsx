@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+
+import type { CaseFormProps } from "@/components/case-create/CaseForm";
 import type {
   CaseFormInput,
-  CaseFormProps,
   ValidCaseFormData,
-} from "../fixtures/case-form";
+} from "@/features/case-create/model/case-form";
 
 export type CaseFormHarnessProps = {
   /**

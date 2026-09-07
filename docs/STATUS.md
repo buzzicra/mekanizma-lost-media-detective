@@ -1,18 +1,18 @@
 # Final kodlama sprinti — durum
 
-**Snapshot:** 2 Eylül 2026
+**Snapshot:** 7 Eylül 2026
 
-**Aktif düzen:** 2 ürün hattı, 6 katılımcı, kişi başına 1 final kodlama taskı
+**Aktif düzen:** Katılımcı sprinti bitti; altı issue açık, kalan uygulama entegrasyonu Bora + Codex hattında
 
-**Uygulama tabanı:** `main` commit `49be8c6`; Next.js + strict TypeScript + Tailwind + Zod + Vitest + Playwright
+**Uygulama tabanı:** `main` commit `f3200fd3`; Next.js + strict TypeScript + Tailwind + Zod + Vitest + Playwright
 
 ## Evidence hattı
 
 | Task | Owner | Reviewer | Verifier | Canlı durum |
 | --- | --- | --- | --- | --- |
-| [FINAL-EVID-01](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/14) | Taylan | Cemresu | Batıncan | Ready — model/helper ve unit test başlayabilir |
-| [FINAL-EVID-02](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/15) | Batıncan | Taylan | Cemresu | Blocked by #14 — plan hazırlanabilir |
-| [FINAL-EVID-03](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/16) | Cemresu | Batıncan | Taylan | Blocked by #14 + #15 — test matrisi hazırlanabilir |
+| [FINAL-EVID-01](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/14) | Taylan | Cemresu | Batıncan | Maintainer entegrasyonunda; issue açık |
+| [FINAL-EVID-02](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/15) | Batıncan | Taylan | Cemresu | Maintainer entegrasyonunda; issue açık |
+| [FINAL-EVID-03](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/16) | Cemresu | Batıncan | Taylan | Maintainer entegrasyonunda; issue açık |
 
 Taylan teknik koordinasyonu, Batıncan UI kalite standardını, Cemresu QA/retest ve final kalite kararını da taşır. Bu ek sorumluluk başka Ownerın dosyasını sessizce değiştirme yetkisi vermez.
 
@@ -20,18 +20,19 @@ Taylan teknik koordinasyonu, Batıncan UI kalite standardını, Cemresu QA/retes
 
 | Task | Owner | Reviewer | Verifier | Canlı durum |
 | --- | --- | --- | --- | --- |
-| [FINAL-CASE-01](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/17) | Kerim | Burak | Emir | Ready — schema/validation ve unit test başlayabilir |
-| [FINAL-CASE-02](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/18) | Emir | Kerim | Burak | Blocked by #17 — plan hazırlanabilir |
-| [FINAL-CASE-03](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/19) | Burak | Emir | Kerim | Blocked by #17 + #18 — test matrisi hazırlanabilir |
+| [FINAL-CASE-01](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/17) | Kerim | Burak | Emir | Schema entegre; issue açık |
+| [FINAL-CASE-02](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/18) | Emir | Kerim | Burak | Maintainer UI entegrasyonunda; issue açık |
+| [FINAL-CASE-03](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/19) | Burak | Emir | Kerim | Test paketi entegre; issue açık |
 
 Burakın GitHub daveti hâlâ kabul edilmediyse #19 assignee alanı boş kalır. Planı issue yorumunda hazırlayabilir; kod/PR için daveti kabul eder veya fork kullanır.
 
-## Bugün başlayabilen kod
+## Çalışan dilimler
 
-- Taylan: #14
-- Kerim: #17
+- `/evidence`: dört kanıt durumu, kaynak güvenlik kontrolü, eksik içerik fallbackleri.
+- `/cases/new`: on alan, locale-aware validation, error summary, focus, submitting ve parent error davranışı.
+- `/`: iki route'a gerçek bağlantı ve dürüst geliştirme durumu.
 
-Batıncan, Cemresu, Emir ve Burakın da final görevleri verilmiştir. Bugünkü doğru iş; kendi issue'sunu okumak, agentla plan/test matrisi çıkarmak, dependency handoffunu beklemektir.
+Bu dilimler UI/validation seviyesindedir. Veri kaydı, auth, API, DB, upload ve production deploy bağlı değildir.
 
 ## Kapanış kapısı
 
@@ -43,7 +44,7 @@ Owner teslimi
 → PASS veya PASS WITH HANDOFF
 ```
 
-Katılımcı sprinti bittikten sonra kalan entegrasyon, app route, API, DB, auth, ürün QA ve release çalışması Bora + Codex tarafından tamamlanır.
+Issue'lar bu entegrasyonda otomatik kapanmaz. PR açıklamasında `Closes` kullanılmaz.
 
 ## Tarihsel kayıt
 
