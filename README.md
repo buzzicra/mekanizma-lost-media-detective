@@ -7,26 +7,27 @@ Kullanıcı yarım hatırladığı medya içeriği için yapılandırılmış va
 ## Şu an neredeyiz?
 
 - Ortak Next.js/TypeScript/test scaffoldı [PR #13](https://github.com/buzzicra/mekanizma-lost-media-detective/pull/13) ile `main`e alındı.
-- Altı katılımcının birer final kodlama görevi var.
-- Evidence ve Case hatları paralel ilerler; her hattın kendi içinde dependency sırası vardır.
-- Auth, DB, API, upload, deploy ve kalan ürün entegrasyonu Bora + Codex hattında kalır.
+- Evidence Card `/evidence`, Vaka Formu `/cases/new` route'unda çalışır.
+- Katılımcı schema ve test teslimleri; maintainer entegrasyonunda gerçek UI, route ve E2E akışına bağlandı.
+- Altı final issue açık tutulur; entegrasyon kanıtı ayrı PR/CI üzerinden izlenir.
+- Auth, DB, API, upload, persistence ve deploy bu UI diliminin kapsamı dışındadır.
 - Ana takip yüzeyi: [Final kodlama sprinti trackerı](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/1).
 
 ## Final görevler
 
-| Hat      | Sıra                                                                                                                                                                                                                                                                  | Owner                       | Durum                                    |
-| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ---------------------------------------- |
-| Evidence | [FINAL-EVID-01](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/14) → [FINAL-EVID-02](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/15) → [FINAL-EVID-03](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/16) | Taylan → Batıncan → Cemresu | #14 Ready; diğerleri dependency bekliyor |
-| Case     | [FINAL-CASE-01](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/17) → [FINAL-CASE-02](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/18) → [FINAL-CASE-03](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/19) | Kerim → Emir → Burak        | #17 Ready; diğerleri dependency bekliyor |
+| Hat      | Sıra                                                                                                                                                                                                                                                                  | Owner                       | Durum                                      |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ------------------------------------------ |
+| Evidence | [FINAL-EVID-01](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/14) → [FINAL-EVID-02](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/15) → [FINAL-EVID-03](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/16) | Taylan → Batıncan → Cemresu | Maintainer entegrasyonunda; issue'lar açık |
+| Case     | [FINAL-CASE-01](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/17) → [FINAL-CASE-02](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/18) → [FINAL-CASE-03](https://github.com/buzzicra/mekanizma-lost-media-detective/issues/19) | Kerim → Emir → Burak        | Maintainer entegrasyonunda; issue'lar açık |
 
-Blocked durum görev olmadığı anlamına gelmez. Sonraki Owner planını ve test matrisini hazırlar; bağlı public API/handoff gelmeden kod yazmaz.
+Issue'ların açık kalması çalışan kodun yok olduğu anlamına gelmez. Açık kayıtlar eğitim teslimi, review notu ve ilerideki ürün entegrasyonu için tarihsel takip yüzeyidir.
 
 ## İlk yapacağın şey
 
 1. [Buradan başlayın](./docs/kickoff/00-BURADAN-BASLAYIN.md) belgesini aç.
 2. [Pod çalışma sistemini](./docs/POD-CALISMA-SISTEMI.md) oku.
 3. Kendi final issue'nu aç; dosya sahipliğini ve dependency'yi kontrol et.
-4. `main`de scaffold commitinin (`49be8c6` veya daha yeni) bulunduğunu doğrula.
+4. `main`de scaffold commitinin (`f3200fd3` veya daha yeni) bulunduğunu doğrula.
 5. İlk agent turunda kod isteme; repo incelemesi, dosya planı ve test eşlemesi iste.
 6. Reviewer planı gördükten sonra yalnız kendi dosya alanında kodla.
 

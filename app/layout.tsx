@@ -14,7 +14,12 @@ export default function RootLayout({
 }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="tr">
-      <body>{children}</body>
+      <body>
+        <a className="skip-link" href="#main-content">
+          Ana içeriğe geç
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

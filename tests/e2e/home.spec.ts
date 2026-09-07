@@ -12,12 +12,18 @@ test("ana sayfa ürün amacını ve geliştirme durumunu gösterir", async ({
     }),
   ).toBeVisible();
   await expect(page.getByRole("status")).toContainText(
-    "İlk dikey dilim hazırlanıyor",
+    "İki arayüz dilimi çalışıyor",
   );
   await expect(
     page.getByRole("heading", { name: "Kanıt kartı" }),
   ).toBeVisible();
   await expect(page.getByRole("heading", { name: "Vaka formu" })).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: /kanıt kartını aç/i }),
+  ).toHaveAttribute("href", "/evidence");
+  await expect(
+    page.getByRole("link", { name: /vaka formunu aç/i }),
+  ).toHaveAttribute("href", "/cases/new");
 });
 
 test("ana sayfada ciddi erişilebilirlik ihlali ve yatay taşma yoktur", async ({

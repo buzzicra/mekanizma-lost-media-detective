@@ -1,0 +1,144 @@
+.card {
+  --status-color: var(--blue);
+  position: relative;
+  display: grid;
+  gap: 0;
+  width: min(100%, 46rem);
+  border-top: 0.45rem solid var(--status-color);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper) 93%, white);
+  box-shadow: 0.7rem 0.7rem 0 var(--paper-deep);
+  overflow-wrap: anywhere;
+}
+
+.card[data-evidence-status="POSSIBLE"] {
+  --status-color: #9a6a12;
+}
+
+.card[data-evidence-status="REJECTED"] {
+  --status-color: var(--rust);
+}
+
+.card[data-evidence-status="VERIFIED"] {
+  --status-color: #356a3d;
+}
+
+.header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.fileCode,
+.statusBadge,
+.section h3,
+.source h3,
+.domain {
+  font-family: var(--font-code);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.fileCode {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.statusBadge {
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: center;
+  color: var(--status-color);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.statusMark {
+  display: inline-grid;
+  width: 1.45rem;
+  height: 1.45rem;
+  border: 1px solid currentColor;
+  place-items: center;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.claim {
+  margin: 0;
+  padding: clamp(1.5rem, 4vw, 2.5rem) 1.25rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 4vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+.section,
+.source {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.28fr) 1fr;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.section h3,
+.source h3 {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+.section p,
+.source p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+
+.sourceRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  align-items: baseline;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.domain {
+  min-width: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  overflow-wrap: anywhere;
+}
+
+.sourceRow a {
+  font-weight: 800;
+  text-underline-offset: 0.3em;
+}
+
+.missing {
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (max-width: 540px) {
+  .card {
+    box-shadow: 0.35rem 0.35rem 0 var(--paper-deep);
+  }
+
+  .section,
+  .source {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+}

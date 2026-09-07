@@ -1,0 +1,249 @@
+.form {
+  display: grid;
+  gap: 1.5rem;
+  width: min(100%, 50rem);
+}
+
+.fields {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.field,
+.period,
+.safetyBox {
+  min-width: 0;
+}
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.field label,
+.period legend {
+  font-family: var(--font-code);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.required {
+  display: inline-block;
+  margin-left: 0.55rem;
+  color: var(--rust);
+  font-size: 0.62rem;
+}
+
+.hint,
+.submitNote {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 2.85rem;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius-control);
+  padding: 0.72rem 0.8rem;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--paper) 82%, white);
+  font: inherit;
+  line-height: 1.45;
+}
+
+.field textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.field input:disabled {
+  border-style: dashed;
+  color: var(--muted);
+  background: var(--paper-deep);
+}
+
+.field input[aria-invalid="true"],
+.field select[aria-invalid="true"],
+.field textarea[aria-invalid="true"],
+.checkRow input[aria-invalid="true"] {
+  border-color: var(--rust);
+  box-shadow: inset 0 0 0 1px var(--rust);
+}
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible,
+.checkRow input:focus-visible,
+.submitRow button:focus-visible,
+.errorSummary button:focus-visible,
+.parentError:focus-visible {
+  outline: var(--focus);
+  outline-offset: 3px;
+}
+
+.period {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  border: 1px solid var(--line);
+  padding: 1.25rem;
+  background: color-mix(in srgb, var(--paper-deep) 62%, transparent);
+}
+
+.checkRow {
+  display: grid;
+  grid-template-columns: 1.35rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+  cursor: pointer;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.checkRow input {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: 0.15rem 0 0;
+  accent-color: var(--rust);
+}
+
+.safetyBox {
+  display: grid;
+  gap: 0.65rem;
+  border: 2px solid var(--ink);
+  padding: 1.25rem;
+  background: var(--acid);
+}
+
+.fieldError {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  margin: 0;
+  color: #7c2d1e;
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.fieldError span {
+  display: inline-grid;
+  flex: 0 0 auto;
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 1px solid currentColor;
+  place-items: center;
+  font-family: var(--font-code);
+  font-size: 0.72rem;
+}
+
+.errorSummary,
+.parentError {
+  border-left: 0.45rem solid var(--rust);
+  padding: 1.25rem;
+  background: var(--danger-surface);
+}
+
+.errorSummary h2,
+.parentError strong {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+}
+
+.errorSummary > p,
+.parentError p {
+  margin: 0.45rem 0 0;
+  line-height: 1.5;
+}
+
+.errorSummary ul {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.errorSummary button {
+  border: 0;
+  padding: 0.18rem 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+.submitRow {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--ink);
+  padding-top: 1.25rem;
+}
+
+.submitNote {
+  max-width: 29rem;
+}
+
+.submitRow button {
+  min-height: 3rem;
+  border: 1px solid var(--ink);
+  padding: 0.75rem 1.1rem;
+  color: var(--ink);
+  background: var(--acid);
+  font-family: var(--font-code);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.submitRow button:disabled {
+  cursor: wait;
+  opacity: 0.62;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 620px) {
+  .fieldRow {
+    grid-template-columns: 1fr;
+  }
+
+  .submitRow {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .submitRow button {
+    width: 100%;
+  }
+}
